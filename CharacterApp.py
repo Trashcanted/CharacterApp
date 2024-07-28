@@ -1,42 +1,26 @@
-import os
-import subprocess
 import tkinter as tk
 from multiprocessing import Process
 
+from CharacterSheet import CharacterSheetApp
 from Roll import DiceRollerApp
 
 
-# Function to run the .exe file
-def run_exe():
-    # Relative path to the .exe file
-    exe_path = os.path.join(
-        os.path.dirname(__file__),
-        "CharacterApp",
-        "CharacterSheet",
-        "CharacterSheet.exe",
-    )
-    # Check if the file exists
-    if os.path.isfile(exe_path):
-        try:
-            # Open the .exe file
-            subprocess.run(exe_path, check=True)
-        except subprocess.CalledProcessError as e:
-            print(f"Error occurred while trying to open {exe_path}: {e}")
-    else:
-        print(f"The file {exe_path} does not exist.")
-
-
-# Function to run the Tkinter application
-def run_tkinter():
+def run_dice_roller_app():
     root = tk.Tk()
     app = DiceRollerApp(root)
     root.mainloop()
 
 
+def run_character_sheet_app():
+    root = tk.Tk()
+    app = CharacterSheetApp(root)
+    root.mainloop()
+
+
 if __name__ == "__main__":
-    # Create two separate processes
-    p1 = Process(target=run_exe)
-    p2 = Process(target=run_tkinter)
+    # Create separate processes for each Tkinter application
+    p1 = Process(target=run_dice_roller_app)
+    p2 = Process(target=run_character_sheet_app)
 
     # Start both processes
     p1.start()
