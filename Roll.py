@@ -15,6 +15,7 @@ class DiceRollerApp:
         self.dice_info = []
         self.force_point_info = []
         self.diceRollTotal = []
+        self.diceRolls = []
 
         # Style configuration
         style = ttk.Style()
@@ -169,21 +170,43 @@ class DiceRollerApp:
         self.diceRollTotal = []
 
         for dice in self.dice_info:
-            for _ in range(int(dice["count"].get())):
-                roll = random.randint(1, int(dice["sides"].get()))
-                roll_mod = int(dice["modifier"].get())
+            if self.addRolls.get():
+                for _ in range(int(dice["count"].get())):
+                    roll = random.randint(1, int(dice["sides"].get()))
+                    roll_mod = int(dice["modifier"].get())
 
-                if dice["exceptional_skill"].get() and roll in [2, 3, 4, 5, 6, 7]:
-                    roll = 8
+                    if dice["exceptional_skill"].get() and roll in [2, 3, 4, 5, 6, 7]:
+                        roll = 8
 
-                if dice["crit"].get():
-                    if roll == 20:
-                        roll = 40
-                    elif roll == 1:
-                        roll = -20
+                    if dice["crit"].get():
+                        if roll == 20:
+                            roll = 40
+                        elif roll == 1:
+                            roll = -20
 
-                self.diceRollTotal.append(roll)
+                    self.diceRolls.append("roll: " + str(roll))
+                    self.diceRollTotal.append(roll)
+                self.diceRolls.append("mod: " + str(roll_mod))
                 self.diceRollTotal.append(roll_mod)
+
+            else:
+                for _ in range(int(dice["count"].get())):
+                    roll = random.randint(1, int(dice["sides"].get()))
+                    roll_mod = int(dice["modifier"].get())
+
+                    if dice["exceptional_skill"].get() and roll in [2, 3, 4, 5, 6, 7]:
+                        roll = 8
+
+                    if dice["crit"].get():
+                        if roll == 20:
+                            roll = 40
+                        elif roll == 1:
+                            roll = -20
+
+                    self.diceRolls.append(
+                        ["roll: " + str(roll), "mod: " + str(roll_mod)]
+                    )
+                    self.diceRollTotal.append(roll + roll_mod)
 
         for force_point in self.force_point_info:
             for _ in range(int(force_point["count"].get())):
@@ -203,6 +226,7 @@ class DiceRollerApp:
         if self.addRolls.get():
             result += f"\nSum of Rolls: {sum(self.diceRollTotal)}"
 
+        messagebox.showinfo("Rolls", self.diceRolls)
         messagebox.showinfo("Results", result)
 
     def reset(self):
