@@ -58,7 +58,11 @@ class DiceRollerApp:
         force_point_count_entry.bind("<Return>", self.focus_next_widget)
 
         ttk.Button(self.root, text="Submit", command=self.setup_dice_inputs).grid(
-            column=2, row=0, padx=10, pady=5, rowspan=2
+            column=2, row=0, padx=10, pady=5
+        )
+
+        ttk.Button(self.root, text="Roll Stats", command=self.roll_stats).grid(
+            column=2, row=1, padx=10, pady=5
         )
 
     def setup_dice_inputs(self):
@@ -235,6 +239,19 @@ class DiceRollerApp:
         self.dice_info.clear()
         self.force_point_info.clear()
         self.create_widgets()
+
+    def roll_stats(self):
+        stats = []
+        for _ in range(7):
+            rolls = []
+            for _ in range(4):
+                rolls.append(random.randint(1, 6))
+            rolls = sorted(rolls)
+            rolls.pop(0)
+
+            stats.append(sum(rolls))
+
+        messagebox.showinfo("Stats", sorted(stats))
 
 
 if __name__ == "__main__":
