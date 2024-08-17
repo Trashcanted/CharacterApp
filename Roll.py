@@ -172,6 +172,7 @@ class DiceRollerApp:
 
     def roll_dice(self):
         self.diceRollTotal = []
+        self.diceRolls = []
 
         for dice in self.dice_info:
             if self.addRolls.get():
