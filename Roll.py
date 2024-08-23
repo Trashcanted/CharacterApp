@@ -15,24 +15,7 @@ class DiceRollerApp:
         self.dice_info = []
         self.force_point_info = []
         self.diceRollTotal = []
-
-        # Style configuration
-        style = ttk.Style()
-        style.configure(
-            "TLabel", background="black", foreground="green", font=("monospace", 10)
-        )
-        style.configure("TEntry", foreground="green", font=("monospace", 10))
-        style.configure(
-            "TCheckbutton",
-            background="black",
-            foreground="green",
-            font=("monospace", 10),
-        )
-        style.configure(
-            "TButton", background="black", foreground="green", font=("monospace", 10)
-        )
-
-        self.root.configure(background="black")
+        self.diceRolls = []
 
         self.create_widgets()
 
@@ -57,7 +40,11 @@ class DiceRollerApp:
         force_point_count_entry.bind("<Return>", self.focus_next_widget)
 
         ttk.Button(self.root, text="Submit", command=self.setup_dice_inputs).grid(
-            column=2, row=0, padx=10, pady=5, rowspan=2
+            column=2, row=0, padx=10, pady=5
+        )
+
+        ttk.Button(self.root, text="Roll Stats", command=self.roll_stats).grid(
+            column=2, row=1, padx=10, pady=5
         )
 
     def setup_dice_inputs(self):
@@ -167,23 +154,46 @@ class DiceRollerApp:
 
     def roll_dice(self):
         self.diceRollTotal = []
+        self.diceRolls = []
 
         for dice in self.dice_info:
-            for _ in range(int(dice["count"].get())):
-                roll = random.randint(1, int(dice["sides"].get()))
-                roll_mod = int(dice["modifier"].get())
+            if self.addRolls.get():
+                for _ in range(int(dice["count"].get())):
+                    roll = random.randint(1, int(dice["sides"].get()))
+                    roll_mod = int(dice["modifier"].get())
 
-                if dice["exceptional_skill"].get() and roll in [2, 3, 4, 5, 6, 7]:
-                    roll = 8
+                    if dice["exceptional_skill"].get() and roll in [2, 3, 4, 5, 6, 7]:
+                        roll = 8
 
-                if dice["crit"].get():
-                    if roll == 20:
-                        roll = 40
-                    elif roll == 1:
-                        roll = -20
+                    if dice["crit"].get():
+                        if roll == 20:
+                            roll = 40
+                        elif roll == 1:
+                            roll = -20
 
-                self.diceRollTotal.append(roll)
+                    self.diceRolls.append("roll: " + str(roll))
+                    self.diceRollTotal.append(roll)
+                self.diceRolls.append("mod: " + str(roll_mod))
                 self.diceRollTotal.append(roll_mod)
+
+            else:
+                for _ in range(int(dice["count"].get())):
+                    roll = random.randint(1, int(dice["sides"].get()))
+                    roll_mod = int(dice["modifier"].get())
+
+                    if dice["exceptional_skill"].get() and roll in [2, 3, 4, 5, 6, 7]:
+                        roll = 8
+
+                    if dice["crit"].get():
+                        if roll == 20:
+                            roll = 40
+                        elif roll == 1:
+                            roll = -20
+
+                    self.diceRolls.append(
+                        ["roll: " + str(roll), "mod: " + str(roll_mod)]
+                    )
+                    self.diceRollTotal.append(roll + roll_mod)
 
         for force_point in self.force_point_info:
             for _ in range(int(force_point["count"].get())):
@@ -203,6 +213,7 @@ class DiceRollerApp:
         if self.addRolls.get():
             result += f"\nSum of Rolls: {sum(self.diceRollTotal)}"
 
+        messagebox.showinfo("Rolls", self.diceRolls)
         messagebox.showinfo("Results", result)
 
     def reset(self):
@@ -211,6 +222,19 @@ class DiceRollerApp:
         self.dice_info.clear()
         self.force_point_info.clear()
         self.create_widgets()
+
+    def roll_stats(self):
+        stats = []
+        for _ in range(7):
+            rolls = []
+            for _ in range(4):
+                rolls.append(random.randint(1, 6))
+            rolls = sorted(rolls)
+            rolls.pop(0)
+
+            stats.append(sum(rolls))
+
+        messagebox.showinfo("Stats", sorted(stats))
 
 
 if __name__ == "__main__":
