@@ -17,24 +17,6 @@ class DiceRollerApp:
         self.diceRollTotal = []
         self.diceRolls = []
 
-        # Style configuration
-        style = ttk.Style()
-        style.configure(
-            "TLabel", background="black", foreground="green", font=("monospace", 10)
-        )
-        style.configure("TEntry", foreground="green", font=("monospace", 10))
-        style.configure(
-            "TCheckbutton",
-            background="black",
-            foreground="green",
-            font=("monospace", 10),
-        )
-        style.configure(
-            "TButton", background="black", foreground="green", font=("monospace", 10)
-        )
-
-        self.root.configure(background="black")
-
         self.create_widgets()
 
     def create_widgets(self):
