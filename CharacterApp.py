@@ -1,5 +1,6 @@
 import tkinter as tk
 from multiprocessing import Process
+from time import sleep
 
 from CharacterSheet import CharacterSheetApp
 from NotationDiceRoller import DiceRollerApp as NotationDiceRollerApp
@@ -30,8 +31,10 @@ if __name__ == "__main__":
     p3 = Process(target=run_notation_dice_roller_app)
 
     # Start both processes
-    p1.start()
     p2.start()
+
+    sleep(0.2)
+    p1.start()
     p3.start()
 
     # Wait for both processes to finish
