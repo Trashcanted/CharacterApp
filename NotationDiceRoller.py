@@ -10,12 +10,12 @@ def parse_notation(notation):
     """
     Parses the dice notation and returns a list of dice rolls and integers with their respective operations.
     """
-    parts = re.split(r"([+-])", notation.replace(" ", ""))
+    parts = re.split(r"([+\-*/])", notation.replace(" ", ""))
     parsed_rolls = []
     current_op = "+"
 
     for part in parts:
-        if part in "+-":
+        if part in "+-*/":
             current_op = part
         else:
             if re.match(r"^\d+$", part):
@@ -141,48 +141,75 @@ def xry(num_dice, sides):
 
 def roll_dice_expression(notation):
     """
-    Interprets the dice notation with addition, subtraction, and integers, and performs the rolls.
+    Interprets the dice notation with addition, subtraction, multiplication, division, and integers,
+    and performs the rolls.
     """
     parsed_rolls = parse_notation(notation)
     total_result = 0
     all_rolls = []
     modifiers = []
+    multipliers = []
 
     for parsed in parsed_rolls:
         op = parsed[0]
         if len(parsed) == 2:
             number = parsed[1]
-            if op == "+":
-                total_result += number
-                modifiers.append(number)
-            elif op == "-":
-                total_result -= number
-                modifiers.append(-number)
+            match op:
+                case "+":
+                    total_result += number
+                    modifiers.append(number)
+                case "-":
+                    total_result -= number
+                    modifiers.append(-number)
+                case "*":
+                    total_result *= number
+                    multipliers.append(f"{number}")  # Collect multipliers
+                case "/":
+                    total_result = math.floor(total_result / number)
+                    multipliers.append(
+                        f"1/{number} rounded down"
+                    )  # Collect multipliers
+                case _:
+                    messagebox.showerror("Error", f"Unknown operator: {op}")
+
         else:
             num_dice, sides, roll_type = parsed[1], parsed[2], parsed[3]
-            if roll_type == "d":
-                rolls = xdy(num_dice, sides)
-            elif roll_type == "f":
-                rolls = xfy(num_dice, sides)
-            elif roll_type == "r":
-                rolls = xry(num_dice, sides)
-            elif roll_type == "c":
-                rolls = xcy(num_dice, sides)
-            elif roll_type == "e":
-                rolls = xey(num_dice, sides)
-            elif roll_type == "ce":
-                rolls = xcey(num_dice, sides)
-            else:
-                raise ValueError(f"Unknown roll type: {roll_type}")
 
-            if op == "+":
-                total_result += sum(rolls)
-            elif op == "-":
-                total_result -= sum(rolls)
+            match roll_type:
+                case "d":
+                    rolls = xdy(num_dice, sides)
+                case "f":
+                    rolls = xfy(num_dice, sides)
+                case "r":
+                    rolls = xry(num_dice, sides)
+                case "c":
+                    rolls = xcy(num_dice, sides)
+                case "e":
+                    rolls = xey(num_dice, sides)
+                case "ce":
+                    rolls = xcey(num_dice, sides)
+                case _:
+                    messagebox.showerror("Error", f"Unknown roll type: {roll_type}")
+
+            match op:
+                case "+":
+                    total_result += sum(rolls)
+                case "-":
+                    total_result -= sum(rolls)
+                case "*":
+                    total_result *= sum(rolls)
+                    multipliers.append(f"{sum(rolls)}")  # Collect multipliers
+                case "/":
+                    total_result /= sum(rolls)
+                    multipliers.append(
+                        f"1/{sum(rolls)} rounded down"
+                    )  # Collect multipliers
+                case _:
+                    messagebox.showerror("Error", f"Unknown operator: {op}")
 
             all_rolls.extend(rolls)
 
-    return total_result, all_rolls, modifiers
+    return total_result, all_rolls, modifiers, multipliers
 
 
 # Tkinter Interface
@@ -199,6 +226,8 @@ class DiceRollerApp(tk.Tk):
         # Entry
         self.entry = tk.Entry(self)
         self.entry.pack(pady=5)
+        self.entry.bind("<Return>", self.roll_dice)
+        self.entry.bind("<KP_Enter>", self.roll_dice)
 
         # Button
         self.roll_button = tk.Button(self, text="Roll", command=self.roll_dice)
@@ -209,18 +238,18 @@ class DiceRollerApp(tk.Tk):
         self.result_text.pack(pady=10)
         self.result_text.configure(state="disabled")
 
-    def roll_dice(self):
+    def roll_dice(self, event=None):
         """
         Handles the roll button click event, rolls the dice, and displays the result.
         """
         notation = self.entry.get()
         try:
-            result, rolls, modifiers = roll_dice_expression(notation)
-            self.display_result(result, rolls, modifiers)
+            result, rolls, modifiers, multipliers = roll_dice_expression(notation)
+            self.display_result(result, rolls, modifiers, multipliers)
         except ValueError as e:
             self.display_error(str(e))
 
-    def display_result(self, result, rolls, modifiers):
+    def display_result(self, result, rolls, modifiers=None, multipliers=None):
         """
         Displays the result of the dice roll in the text widget.
         """
@@ -233,6 +262,10 @@ class DiceRollerApp(tk.Tk):
         if modifiers:
             self.result_text.insert(
                 tk.END, f"Modifier(s): {' + '.join(map(str, modifiers))}\n"
+            )
+        if multipliers:
+            self.result_text.insert(
+                tk.END, f"Multiplier(s): {' '.join(map(str, multipliers))}\n"
             )
         self.result_text.configure(state="disabled")
 
