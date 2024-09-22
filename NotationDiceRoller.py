@@ -141,8 +141,7 @@ def xry(num_dice, sides):
 
 def roll_dice_expression(notation):
     """
-    Interprets the dice notation with addition, subtraction, multiplication, division, and integers,
-    and performs the rolls.
+    Interprets the dice notation with addition, subtraction, and integers, and performs the rolls.
     """
     parsed_rolls = parse_notation(notation)
     total_result = 0
@@ -163,16 +162,14 @@ def roll_dice_expression(notation):
                     modifiers.append(-number)
                 case "*":
                     total_result *= number
-                    multipliers.append(f"{number}")  # Collect multipliers
+                    multipliers.append(number)
                 case "/":
                     total_result = math.floor(total_result / number)
-                    multipliers.append(
-                        f"1/{number} rounded down"
-                    )  # Collect multipliers
+                    multipliers.append(f"1 / {number}")
                 case _:
                     messagebox.showerror("Error", f"Unknown operator: {op}")
 
-        else:
+        elif len(parsed) == 4:  # Handling dice rolls with an operator
             num_dice, sides, roll_type = parsed[1], parsed[2], parsed[3]
 
             match roll_type:
@@ -198,12 +195,8 @@ def roll_dice_expression(notation):
                     total_result -= sum(rolls)
                 case "*":
                     total_result *= sum(rolls)
-                    multipliers.append(f"{sum(rolls)}")  # Collect multipliers
                 case "/":
                     total_result /= sum(rolls)
-                    multipliers.append(
-                        f"1/{sum(rolls)} rounded down"
-                    )  # Collect multipliers
                 case _:
                     messagebox.showerror("Error", f"Unknown operator: {op}")
 
@@ -226,8 +219,8 @@ class DiceRollerApp(tk.Tk):
         # Entry
         self.entry = tk.Entry(self)
         self.entry.pack(pady=5)
-        self.entry.bind("<Return>", self.roll_dice)
         self.entry.bind("<KP_Enter>", self.roll_dice)
+        self.entry.bind("<Return>", self.roll_dice)  # Bind Enter key to roll dice
 
         # Button
         self.roll_button = tk.Button(self, text="Roll", command=self.roll_dice)
@@ -241,33 +234,57 @@ class DiceRollerApp(tk.Tk):
     def roll_dice(self, event=None):
         """
         Handles the roll button click event, rolls the dice, and displays the result.
+        Implements a rolling animation before showing the result.
+        """
+        self.show_rolling(1)  # Start the rolling animation with the first dot
+
+    def show_rolling(self, step):
+        """
+        Displays the rolling animation step-by-step with a delay.
+        """
+        self.result_text.configure(state="normal")
+        self.result_text.delete(1.0, tk.END)
+
+        if step == 1:
+            self.result_text.insert(tk.END, "Rolling .")
+        elif step == 2:
+            self.result_text.insert(tk.END, "Rolling ..")
+        elif step == 3:
+            self.result_text.insert(tk.END, "Rolling ...")
+        else:
+            self.result_text.delete(1.0, tk.END)  # Clear the rolling text
+            self.display_result()  # Show the final dice roll result
+            return
+
+        self.result_text.configure(state="disabled")
+        self.after(
+            500, self.show_rolling, step + 1
+        )  # Schedule the next step after 500ms
+
+    def display_result(self):
+        """
+        Rolls the dice and displays the result in the text widget.
         """
         notation = self.entry.get()
         try:
             result, rolls, modifiers, multipliers = roll_dice_expression(notation)
-            self.display_result(result, rolls, modifiers, multipliers)
+            self.result_text.configure(state="normal")
+            self.result_text.delete(1.0, tk.END)
+            self.result_text.insert(
+                tk.END, f"Result of rolling {self.entry.get()}: {result}\n"
+            )
+            self.result_text.insert(tk.END, f"All rolls: {rolls}\n")
+            if modifiers:
+                self.result_text.insert(
+                    tk.END, f"Modifier(s): {' + '.join(map(str, modifiers))}\n"
+                )
+            if multipliers:
+                self.result_text.insert(
+                    tk.END, f"Multiplier(s): {' * '.join(map(str, multipliers))}\n"
+                )
+            self.result_text.configure(state="disabled")
         except ValueError as e:
             self.display_error(str(e))
-
-    def display_result(self, result, rolls, modifiers=None, multipliers=None):
-        """
-        Displays the result of the dice roll in the text widget.
-        """
-        self.result_text.configure(state="normal")
-        self.result_text.delete(1.0, tk.END)
-        self.result_text.insert(
-            tk.END, f"Result of rolling {self.entry.get()}: {result}\n"
-        )
-        self.result_text.insert(tk.END, f"All rolls: {rolls}\n")
-        if modifiers:
-            self.result_text.insert(
-                tk.END, f"Modifier(s): {' + '.join(map(str, modifiers))}\n"
-            )
-        if multipliers:
-            self.result_text.insert(
-                tk.END, f"Multiplier(s): {' '.join(map(str, multipliers))}\n"
-            )
-        self.result_text.configure(state="disabled")
 
     def display_error(self, error_message):
         """
