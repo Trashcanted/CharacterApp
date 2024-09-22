@@ -39,8 +39,18 @@
 - **Subtraction (`-`)**: Subtracts results or integers.
   - *Example*: `2d10 - d6` (Roll two 10-sided dice, then subtract a 6-sided die result).
 
+- **Multiplication (`*`)**: Multiplies results.
+  - *Example*: `d20 * 2d6` (Roll one 20-sided die, then multiply by a two 6-sided die result).
+
+- **Division (`/`)**: Divides results.
+  - *Example*: `4d10 / 2d6` (Roll four 10-sided dice, then divide by a two 6-sided die result, then round down).
+
 - **Modifiers**: Add or subtract integers directly.
   - *Example*: `3d8 + 5` (Roll three 8-sided dice and add 5).
+
+- **Multipliers**: Multiply or divide integers directly.
+  - *Example*: `3d8 * 2` (Roll three 8-sided dice and multiply by two).
+  - *Example*: `3d8 / 2` (Roll three 8-sided dice and divide by two, then round down).
 
 ## Examples
 1. `2d10 + 5`: Roll two 10-sided dice, add 5.
