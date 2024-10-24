@@ -1,0 +1,443 @@
+{
+    "Info": {
+        "Character Name": "",
+        "Character Level": "",
+        "Classes": "",
+        "Destiny": "",
+        "Credits": "",
+        "Species": "",
+        "Age": "",
+        "Height": "",
+        "Weight": "",
+        "Gender": "",
+        "Species Info": "",
+        "Force Points": "",
+        "Base Attack Bonus": "",
+        "Speed": "",
+        "Destiny Points": "",
+        "Damage Reduction": ""
+    },
+    "Languages": {
+        "Language 1": "",
+        "Language 2": "",
+        "Language 3": "",
+        "Language 4": "",
+        "Language 5": "",
+        "Language 6": "",
+        "Language 7": "",
+        "Language 8": "",
+        "Language 9": "",
+        "Language 10": ""
+    },
+    "Stats": {
+        "Strength": {
+            "Score": "",
+            "Mod": ""
+        },
+        "Dexterity": {
+            "Score": "",
+            "Mod": ""
+        },
+        "Constitution": {
+            "Score": "",
+            "Mod": ""
+        },
+        "Intelligence": {
+            "Score": "",
+            "Mod": ""
+        },
+        "Wisdom": {
+            "Score": "",
+            "Mod": ""
+        },
+        "Charisma": {
+            "Score": "",
+            "Mod": ""
+        },
+        "Willpower": {
+            "Score": "",
+            "Mod": ""
+        }
+    },
+    "Defenses": {
+        "Fortitude": {
+            "Total": "",
+            "Class Bonus": "",
+            "Stat Bonus": "",
+            "Armor Bonus": "",
+            "Misc": ""
+        },
+        "Reflex": {
+            "Total": "",
+            "Class Bonus": "",
+            "Stat Bonus": "",
+            "Armor Bonus": "",
+            "Misc": ""
+        },
+        "Will": {
+            "Total": "",
+            "Class Bonus": "",
+            "Stat Bonus": "",
+            "Armor Bonus": "",
+            "Misc": ""
+        }
+    },
+    "Damage Thresholds": {
+        "Torso": {
+            "Total": "",
+            "Fortitude Bonus": "",
+            "Misc": ""
+        },
+        "Head": {
+            "Total": "",
+            "Torso Bonus": ""
+        },
+        "Limbs": {
+            "Total": "",
+            "Torso Bonus": ""
+        }
+    },
+    "Armor": {
+        "Armor Name": "",
+        "Fortitude Bonus": "",
+        "Reflex Bonus": "",
+        "Max Dex Bonus": "",
+        "Additional Affects": ""
+    },
+    "Weapons": {
+        "Weapon 1": {
+            "Weapon Name": "",
+            "Hit Mod": "",
+            "Damage": "",
+            "Range": "",
+            "Crit Range": ""
+        },
+        "Weapon 2": {
+            "Weapon Name": "",
+            "Hit Mod": "",
+            "Damage": "",
+            "Range": "",
+            "Crit Range": ""
+        },
+        "Weapon 3": {
+            "Weapon Name": "",
+            "Hit Mod": "",
+            "Damage": "",
+            "Range": "",
+            "Crit Range": ""
+        },
+        "Weapon 4": {
+            "Weapon Name": "",
+            "Hit Mod": "",
+            "Damage": "",
+            "Range": "",
+            "Crit Range": ""
+        },
+        "Weapon 5": {
+            "Weapon Name": "",
+            "Hit Mod": "",
+            "Damage": "",
+            "Range": "",
+            "Crit Range": ""
+        }
+    },
+    "Skills": {
+        "Acrobatics": {
+            "Stat": "Dex",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Climb": {
+            "Stat": "Str",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Deception": {
+            "Stat": "Cha",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Endurance": {
+            "Stat": "Con",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Gather Information": {
+            "Stat": "Cha",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Initiative": {
+            "Stat": "Dex",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Jump": {
+            "Stat": "Str",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Knowledge": {
+            "Stat": "Int",
+            "Type": {
+                "Bureaucracy": {
+                    "Total": "",
+                    "Training": "",
+                    "Focus": ""
+                },
+                "Galactic Lore": {
+                    "Total": "",
+                    "Training": "",
+                    "Focus": ""
+                },
+                "Life Science": {
+                    "Total": "",
+                    "Training": "",
+                    "Focus": ""
+                },
+                "Physical Science": {
+                    "Total": "",
+                    "Training": "",
+                    "Focus": ""
+                },
+                "Social Science": {
+                    "Total": "",
+                    "Training": "",
+                    "Focus": ""
+                },
+                "Tactics": {
+                    "Total": "",
+                    "Training": "",
+                    "Focus": ""
+                },
+                "Technology": {
+                    "Total": "",
+                    "Training": "",
+                    "Focus": ""
+                }
+            }
+        },
+        "Mechanics": {
+            "Stat": "Int",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Perception": {
+            "Stat": "Wis",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Persuasion": {
+            "Stat": "Cha",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Pilot": {
+            "Stat": "Dex",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Ride": {
+            "Stat": "Dex",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Stealth": {
+            "Stat": "Dex",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Survival": {
+            "Stat": "Wis",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Swim": {
+            "Stat": "Str",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Treat Injury": {
+            "Stat": "Int",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Use Computer": {
+            "Stat": "Int",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        },
+        "Use the Force": {
+            "Stat": "Cha/Will",
+            "Total": "",
+            "Training": "",
+            "Focus": ""
+        }
+    },
+    "Force Schools": {
+        "Force School": {
+            "Alchemy": {
+                "Total": "",
+                "Training 1": "",
+                "Training 2": "",
+                "Training 3": ""
+            },
+            "Augmentation": {
+                "Total": "",
+                "Training 1": "",
+                "Training 2": "",
+                "Training 3": ""
+            },
+            "Cognition": {
+                "Total": "",
+                "Training 1": "",
+                "Training 2": "",
+                "Training 3": ""
+            },
+            "Sorcery": {
+                "Total": "",
+                "Training 1": "",
+                "Training 2": "",
+                "Training 3": ""
+            },
+            "Technokinesis": {
+                "Total": "",
+                "Training 1": "",
+                "Training 2": "",
+                "Training 3": ""
+            },
+            "Telekinesis": {
+                "Total": "",
+                "Training 1": "",
+                "Training 2": "",
+                "Training 3": ""
+            },
+            "Vitalism": {
+                "Total": "",
+                "Training 1": "",
+                "Training 2": "",
+                "Training 3": ""
+            }
+        },
+        "Force Uses": ""
+    },
+    "Force Techniques": {
+        "Force Technique 1": "",
+        "Force Technique 2": "",
+        "Force Technique 3": "",
+        "Force Technique 4": "",
+        "Force Technique 5": "",
+        "Force Technique 6": "",
+        "Force Technique 7": "",
+        "Force Technique 8": "",
+        "Force Technique 9": "",
+        "Force Technique 10": "",
+        "Force Technique 11": "",
+        "Force Technique 12": "",
+        "Force Technique 13": "",
+        "Force Technique 14": "",
+        "Force Technique 15": ""
+    },
+    "Force Secrets": {
+        "Force Secret 1": "",
+        "Force Secret 2": "",
+        "Force Secret 3": "",
+        "Force Secret 4": "",
+        "Force Secret 5": "",
+        "Force Secret 6": "",
+        "Force Secret 7": "",
+        "Force Secret 8": "",
+        "Force Secret 9": "",
+        "Force Secret 10": "",
+        "Force Secret 11": "",
+        "Force Secret 12": "",
+        "Force Secret 13": "",
+        "Force Secret 14": "",
+        "Force Secret 15": ""
+    },
+    "Feats": {
+        "Feat 1": "",
+        "Feat 2": "",
+        "Feat 3": "",
+        "Feat 4": "",
+        "Feat 5": "",
+        "Feat 6": "",
+        "Feat 7": "",
+        "Feat 8": "",
+        "Feat 9": "",
+        "Feat 10": "",
+        "Feat 11": "",
+        "Feat 12": "",
+        "Feat 13": "",
+        "Feat 14": "",
+        "Feat 15": ""
+    },
+    "Talents": {
+        "Talent 1": "",
+        "Talent 2": "",
+        "Talent 3": "",
+        "Talent 4": "",
+        "Talent 5": "",
+        "Talent 6": "",
+        "Talent 7": "",
+        "Talent 8": "",
+        "Talent 9": "",
+        "Talent 10": "",
+        "Talent 11": "",
+        "Talent 12": "",
+        "Talent 13": "",
+        "Talent 14": "",
+        "Talent 15": ""
+    },
+    "Equipment": {
+        "Equipment 1": "",
+        "Equipment 2": "",
+        "Equipment 3": "",
+        "Equipment 4": "",
+        "Equipment 5": "",
+        "Equipment 6": "",
+        "Equipment 7": "",
+        "Equipment 8": "",
+        "Equipment 9": "",
+        "Equipment 10": "",
+        "Equipment 11": "",
+        "Equipment 12": "",
+        "Equipment 13": "",
+        "Equipment 14": "",
+        "Equipment 15": "",
+        "Equipment 16": "",
+        "Equipment 17": "",
+        "Equipment 18": "",
+        "Equipment 19": "",
+        "Equipment 20": "",
+        "Equipment 21": "",
+        "Equipment 22": "",
+        "Equipment 23": "",
+        "Equipment 24": "",
+        "Equipment 25": "",
+        "Equipment 26": "",
+        "Equipment 27": "",
+        "Equipment 28": "",
+        "Equipment 29": "",
+        "Equipment 30": "",
+        "Equipment 31": "",
+        "Equipment 32": ""
+    }
+}
