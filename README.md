@@ -1,3 +1,15 @@
+# Setup Guide
+
+Install python from python.org
+
+## Mac or Linux
+
+Run the character app with `python3 character_app.py` on in the terminal
+
+## Windows
+
+the same as Mac or Linux, but `python character_app.py`
+
 # Dice Notation Guide
 
 ## General Format
@@ -58,3 +70,12 @@
 3. `3c6 + 2e8 - 4`: Roll three 6-sided dice (Critical), two 8-sided dice (Exceptional Skill), subtract 4.
 4. `4ce12`: Roll four 12-sided dice (Critical and Exceptional Skill).
 5. `5r4 + 2`: Roll five 4-sided dice (Reliable Boon, reroll 1s), add 2.
+
+
+# Character Converter Guide
+
+Open the terminal and type `python3 character_converter.py [character name]`
+
+The character name should be the same as the name on the txt file.
+
+the json file will have the same name.
