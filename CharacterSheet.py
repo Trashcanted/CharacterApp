@@ -1,5 +1,6 @@
 import json
 import tkinter as tk
+from math import floor
 from tkinter import filedialog, messagebox, ttk
 
 
@@ -1564,31 +1565,45 @@ class CharacterSheetApp:
                 "Stats": {
                     "Strength": {
                         "Score": self.entry_strength_score.get(),
-                        "Mod": self.entry_strength_mod.get(),
+                        "Mod": str(
+                            floor((int(self.entry_strength_score.get()) - 10) / 2)
+                        ),
                     },
                     "Dexterity": {
                         "Score": self.entry_dexterity_score.get(),
-                        "Mod": self.entry_dexterity_mod.get(),
+                        "Mod": str(
+                            floor((int(self.entry_dexterity_score.get()) - 10) / 2)
+                        ),
                     },
                     "Constitution": {
                         "Score": self.entry_constitution_score.get(),
-                        "Mod": self.entry_constitution_mod.get(),
+                        "Mod": str(
+                            floor((int(self.entry_constitution_score.get()) - 10) / 2)
+                        ),
                     },
                     "Intelligence": {
                         "Score": self.entry_intelligence_score.get(),
-                        "Mod": self.entry_intelligence_mod.get(),
+                        "Mod": str(
+                            floor((int(self.entry_intelligence_score.get()) - 10) / 2)
+                        ),
                     },
                     "Wisdom": {
                         "Score": self.entry_wisdom_score.get(),
-                        "Mod": self.entry_wisdom_mod.get(),
+                        "Mod": str(
+                            floor((int(self.entry_wisdom_score.get()) - 10) / 2)
+                        ),
                     },
                     "Charisma": {
                         "Score": self.entry_charisma_score.get(),
-                        "Mod": self.entry_charisma_mod.get(),
+                        "Mod": str(
+                            floor((int(self.entry_charisma_score.get()) - 10) / 2)
+                        ),
                     },
                     "Willpower": {
                         "Score": self.entry_willpower_score.get(),
-                        "Mod": self.entry_willpower_mod.get(),
+                        "Mod": str(
+                            floor((int(self.entry_willpower_score.get()) - 10) / 2)
+                        ),
                     },
                 },
                 "Defenses": {
