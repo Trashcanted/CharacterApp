@@ -300,61 +300,76 @@ class CharacterSheetApp:
     def create_defense_fields(self, parent):
         # Labels and Entries for defenses without loop
         # Fortitude
+        self.lbl_total = tk.Label(parent, text="Total")
+        self.lbl_total.grid(row=0, column=1, padx=5, pady=5, sticky="w")
+
+        self.lbl_class_bonus = tk.Label(parent, text="Class Bonus")
+        self.lbl_class_bonus.grid(row=0, column=2, padx=5, pady=5, sticky="w")
+
+        self.lbl_stat_bonus = tk.Label(parent, text="Stat Bonus")
+        self.lbl_stat_bonus.grid(row=0, column=3, padx=5, pady=5, sticky="w")
+
+        self.lbl_armor_bonus = tk.Label(parent, text="Armor Bonus")
+        self.lbl_armor_bonus.grid(row=0, column=4, padx=5, pady=5, sticky="w")
+
+        self.lbl_misc_bonus = tk.Label(parent, text="Misc")
+        self.lbl_misc_bonus.grid(row=0, column=5, padx=5, pady=5, sticky="w")
+
         self.lbl_fortitude = tk.Label(parent, text="Fortitude")
-        self.lbl_fortitude.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_fortitude.grid(row=1, column=0, padx=5, pady=5, sticky="w")
 
         self.entry_fortitude_1 = tk.Entry(parent, width=10)
-        self.entry_fortitude_1.grid(row=0, column=1, padx=5, pady=5)
+        self.entry_fortitude_1.grid(row=1, column=1, padx=5, pady=5)
 
         self.entry_fortitude_2 = tk.Entry(parent, width=10)
-        self.entry_fortitude_2.grid(row=0, column=2, padx=5, pady=5)
+        self.entry_fortitude_2.grid(row=1, column=2, padx=5, pady=5)
 
         self.entry_fortitude_3 = tk.Entry(parent, width=10)
-        self.entry_fortitude_3.grid(row=0, column=3, padx=5, pady=5)
+        self.entry_fortitude_3.grid(row=1, column=3, padx=5, pady=5)
 
         self.entry_fortitude_4 = tk.Entry(parent, width=10)
-        self.entry_fortitude_4.grid(row=0, column=4, padx=5, pady=5)
+        self.entry_fortitude_4.grid(row=1, column=4, padx=5, pady=5)
 
         self.entry_fortitude_5 = tk.Entry(parent, width=10)
-        self.entry_fortitude_5.grid(row=0, column=5, padx=5, pady=5)
+        self.entry_fortitude_5.grid(row=1, column=5, padx=5, pady=5)
 
         # Reflex
         self.lbl_reflex = tk.Label(parent, text="Reflex")
-        self.lbl_reflex.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_reflex.grid(row=2, column=0, padx=5, pady=5, sticky="w")
 
         self.entry_reflex_1 = tk.Entry(parent, width=10)
-        self.entry_reflex_1.grid(row=1, column=1, padx=5, pady=5)
+        self.entry_reflex_1.grid(row=2, column=1, padx=5, pady=5)
 
         self.entry_reflex_2 = tk.Entry(parent, width=10)
-        self.entry_reflex_2.grid(row=1, column=2, padx=5, pady=5)
+        self.entry_reflex_2.grid(row=2, column=2, padx=5, pady=5)
 
         self.entry_reflex_3 = tk.Entry(parent, width=10)
-        self.entry_reflex_3.grid(row=1, column=3, padx=5, pady=5)
+        self.entry_reflex_3.grid(row=2, column=3, padx=5, pady=5)
 
         self.entry_reflex_4 = tk.Entry(parent, width=10)
-        self.entry_reflex_4.grid(row=1, column=4, padx=5, pady=5)
+        self.entry_reflex_4.grid(row=2, column=4, padx=5, pady=5)
 
         self.entry_reflex_5 = tk.Entry(parent, width=10)
-        self.entry_reflex_5.grid(row=1, column=5, padx=5, pady=5)
+        self.entry_reflex_5.grid(row=2, column=5, padx=5, pady=5)
 
         # Will
         self.lbl_will = tk.Label(parent, text="Will")
-        self.lbl_will.grid(row=2, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_will.grid(row=3, column=0, padx=5, pady=5, sticky="w")
 
         self.entry_will_1 = tk.Entry(parent, width=10)
-        self.entry_will_1.grid(row=2, column=1, padx=5, pady=5)
+        self.entry_will_1.grid(row=3, column=1, padx=5, pady=5)
 
         self.entry_will_2 = tk.Entry(parent, width=10)
-        self.entry_will_2.grid(row=2, column=2, padx=5, pady=5)
+        self.entry_will_2.grid(row=3, column=2, padx=5, pady=5)
 
         self.entry_will_3 = tk.Entry(parent, width=10)
-        self.entry_will_3.grid(row=2, column=3, padx=5, pady=5)
+        self.entry_will_3.grid(row=3, column=3, padx=5, pady=5)
 
         self.entry_will_4 = tk.Entry(parent, width=10)
-        self.entry_will_4.grid(row=2, column=4, padx=5, pady=5)
+        self.entry_will_4.grid(row=3, column=4, padx=5, pady=5)
 
         self.entry_will_5 = tk.Entry(parent, width=10)
-        self.entry_will_5.grid(row=2, column=5, padx=5, pady=5)
+        self.entry_will_5.grid(row=3, column=5, padx=5, pady=5)
 
         # Store the entries in a list if needed
         self.defense_entries = [
