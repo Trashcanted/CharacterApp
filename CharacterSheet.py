@@ -223,61 +223,66 @@ class CharacterSheetApp:
 
     def create_stat_fields(self, parent):
         # Labels and Entries for stats without loop
+        self.lbl_score = tk.Label(parent, text="Score")
+        self.lbl_score.grid(row=0, column=1, padx=5, pady=5, sticky="w")
+        self.lbl_mod = tk.Label(parent, text="Mod")
+        self.lbl_mod.grid(row=0, column=2, padx=5, pady=5, sticky="w")
+
         # Strength
         self.lbl_strength = tk.Label(parent, text="Strength")
-        self.lbl_strength.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_strength.grid(row=1, column=0, padx=5, pady=5, sticky="w")
         self.entry_strength_score = tk.Entry(parent, width=10)
-        self.entry_strength_score.grid(row=0, column=1, padx=5, pady=5)
+        self.entry_strength_score.grid(row=1, column=1, padx=5, pady=5)
         self.entry_strength_mod = tk.Entry(parent, width=10)
-        self.entry_strength_mod.grid(row=0, column=2, padx=5, pady=5)
+        self.entry_strength_mod.grid(row=1, column=2, padx=5, pady=5)
 
         # Dexterity
         self.lbl_dexterity = tk.Label(parent, text="Dexterity")
-        self.lbl_dexterity.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_dexterity.grid(row=2, column=0, padx=5, pady=5, sticky="w")
         self.entry_dexterity_score = tk.Entry(parent, width=10)
-        self.entry_dexterity_score.grid(row=1, column=1, padx=5, pady=5)
+        self.entry_dexterity_score.grid(row=2, column=1, padx=5, pady=5)
         self.entry_dexterity_mod = tk.Entry(parent, width=10)
-        self.entry_dexterity_mod.grid(row=1, column=2, padx=5, pady=5)
+        self.entry_dexterity_mod.grid(row=2, column=2, padx=5, pady=5)
 
         # Constitution
         self.lbl_constitution = tk.Label(parent, text="Constitution")
-        self.lbl_constitution.grid(row=2, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_constitution.grid(row=3, column=0, padx=5, pady=5, sticky="w")
         self.entry_constitution_score = tk.Entry(parent, width=10)
-        self.entry_constitution_score.grid(row=2, column=1, padx=5, pady=5)
+        self.entry_constitution_score.grid(row=3, column=1, padx=5, pady=5)
         self.entry_constitution_mod = tk.Entry(parent, width=10)
-        self.entry_constitution_mod.grid(row=2, column=2, padx=5, pady=5)
+        self.entry_constitution_mod.grid(row=3, column=2, padx=5, pady=5)
 
         # Intelligence
         self.lbl_intelligence = tk.Label(parent, text="Intelligence")
-        self.lbl_intelligence.grid(row=3, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_intelligence.grid(row=4, column=0, padx=5, pady=5, sticky="w")
         self.entry_intelligence_score = tk.Entry(parent, width=10)
-        self.entry_intelligence_score.grid(row=3, column=1, padx=5, pady=5)
+        self.entry_intelligence_score.grid(row=4, column=1, padx=5, pady=5)
         self.entry_intelligence_mod = tk.Entry(parent, width=10)
-        self.entry_intelligence_mod.grid(row=3, column=2, padx=5, pady=5)
+        self.entry_intelligence_mod.grid(row=4, column=2, padx=5, pady=5)
 
         # Wisdom
         self.lbl_wisdom = tk.Label(parent, text="Wisdom")
-        self.lbl_wisdom.grid(row=4, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_wisdom.grid(row=5, column=0, padx=5, pady=5, sticky="w")
         self.entry_wisdom_score = tk.Entry(parent, width=10)
-        self.entry_wisdom_score.grid(row=4, column=1, padx=5, pady=5)
+        self.entry_wisdom_score.grid(row=5, column=1, padx=5, pady=5)
         self.entry_wisdom_mod = tk.Entry(parent, width=10)
-        self.entry_wisdom_mod.grid(row=4, column=2, padx=5, pady=5)
+        self.entry_wisdom_mod.grid(row=5, column=2, padx=5, pady=5)
 
         # Charisma
         self.lbl_charisma = tk.Label(parent, text="Charisma")
-        self.lbl_charisma.grid(row=5, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_charisma.grid(row=6, column=0, padx=5, pady=5, sticky="w")
         self.entry_charisma_score = tk.Entry(parent, width=10)
-        self.entry_charisma_score.grid(row=5, column=1, padx=5, pady=5)
+        self.entry_charisma_score.grid(row=6, column=1, padx=5, pady=5)
         self.entry_charisma_mod = tk.Entry(parent, width=10)
-        self.entry_charisma_mod.grid(row=5, column=2, padx=5, pady=5)
+        self.entry_charisma_mod.grid(row=6, column=2, padx=5, pady=5)
 
         # Willpower
         self.lbl_willpower = tk.Label(parent, text="Willpower")
-        self.lbl_willpower.grid(row=6, column=0, padx=5, pady=5, sticky="w")
+        self.lbl_willpower.grid(row=7, column=0, padx=5, pady=5, sticky="w")
         self.entry_willpower_score = tk.Entry(parent, width=10)
-        self.entry_willpower_score.grid(row=6, column=1, padx=5, pady=5)
+        self.entry_willpower_score.grid(row=7, column=1, padx=5, pady=5)
         self.entry_willpower_mod = tk.Entry(parent, width=10)
-        self.entry_willpower_mod.grid(row=6, column=2, padx=5, pady=5)
+        self.entry_willpower_mod.grid(row=7, column=2, padx=5, pady=5)
 
         # Store the entries in a list if needed
         self.stat_entries = [
@@ -392,57 +397,52 @@ class CharacterSheetApp:
 
     def create_damage_threshold_fields(self, parent):
         # Labels and Entries for Damage Threshold without loop
-        # Torso
-        self.lbl_torso = tk.Label(parent, text="Torso")
-        self.lbl_torso.grid(row=0, column=0, padx=5, pady=5, sticky="w")
-        self.entry_torso = tk.Entry(parent, width=10)
-        self.entry_torso.grid(row=1, column=0, padx=5, pady=5)
 
         # Fortitude
         self.lbl_fortitude = tk.Label(parent, text="Fortitude")
-        self.lbl_fortitude.grid(row=0, column=1, padx=5, pady=5, sticky="w")
-        self.entry_fortitude = tk.Entry(parent, width=10)
-        self.entry_fortitude.grid(row=1, column=1, padx=5, pady=5)
+        self.lbl_fortitude.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        self.entry_fortitude = tk.Entry(parent, width=5)
+        self.entry_fortitude.grid(row=0, column=1, padx=5, pady=5)
 
-        # Misc
-        self.lbl_misc = tk.Label(parent, text="Misc")
-        self.lbl_misc.grid(row=0, column=2, padx=5, pady=5, sticky="w")
-        self.entry_misc = tk.Entry(parent, width=10)
-        self.entry_misc.grid(row=1, column=2, padx=5, pady=5)
+        # Labels
+        self.lbl_total_def = tk.Label(parent, text="Total")
+        self.lbl_total_def.grid(row=1, column=1, padx=5, pady=5, sticky="w")
+        self.lbl_misc_def = tk.Label(parent, text="Misc")
+        self.lbl_misc_def.grid(row=1, column=2, padx=5, pady=5, sticky="w")
+
+        # Torso
+        self.lbl_torso = tk.Label(parent, text="Torso")
+        self.lbl_torso.grid(row=2, column=0, padx=5, pady=5, sticky="w")
+        self.entry_torso = tk.Entry(parent, width=5)
+        self.entry_torso.grid(row=2, column=1, padx=5, pady=5)
+        self.entry_torso_misc = tk.Entry(parent, width=5)
+        self.entry_torso_misc.grid(row=2, column=2, padx=5, pady=5)
 
         # Head
         self.lbl_head = tk.Label(parent, text="Head")
-        self.lbl_head.grid(row=0, column=3, padx=5, pady=5, sticky="w")
-        self.entry_head = tk.Entry(parent, width=10)
-        self.entry_head.grid(row=1, column=3, padx=5, pady=5)
-
-        # Head Bonus
-        self.lbl_head_bonus = tk.Label(parent, text="Head Bonus")
-        self.lbl_head_bonus.grid(row=0, column=4, padx=5, pady=5, sticky="w")
-        self.entry_head_bonus = tk.Entry(parent, width=10)
-        self.entry_head_bonus.grid(row=1, column=4, padx=5, pady=5)
+        self.lbl_head.grid(row=3, column=0, padx=5, pady=5, sticky="w")
+        self.entry_head = tk.Entry(parent, width=5)
+        self.entry_head.grid(row=3, column=1, padx=5, pady=5)
+        self.entry_head_misc = tk.Entry(parent, width=5)
+        self.entry_head_misc.grid(row=3, column=2, padx=5, pady=5)
 
         # Limbs
         self.lbl_limbs = tk.Label(parent, text="Limbs")
-        self.lbl_limbs.grid(row=0, column=5, padx=5, pady=5, sticky="w")
-        self.entry_limbs = tk.Entry(parent, width=10)
-        self.entry_limbs.grid(row=1, column=5, padx=5, pady=5)
-
-        # Limb Bonus
-        self.lbl_limb_bonus = tk.Label(parent, text="Limb Bonus")
-        self.lbl_limb_bonus.grid(row=0, column=6, padx=5, pady=5, sticky="w")
-        self.entry_limb_bonus = tk.Entry(parent, width=10)
-        self.entry_limb_bonus.grid(row=1, column=6, padx=5, pady=5)
+        self.lbl_limbs.grid(row=4, column=0, padx=5, pady=5, sticky="w")
+        self.entry_limbs = tk.Entry(parent, width=5)
+        self.entry_limbs.grid(row=4, column=1, padx=5, pady=5)
+        self.entry_limbs_misc = tk.Entry(parent, width=5)
+        self.entry_limbs_misc.grid(row=4, column=2, padx=5, pady=5)
 
         # Store the entries in a list if needed
         self.damage_threshold_entries = [
-            self.entry_torso,
             self.entry_fortitude,
-            self.entry_misc,
+            self.entry_torso,
+            self.entry_torso_misc,
             self.entry_head,
-            self.entry_head_bonus,
+            self.entry_head_misc,
             self.entry_limbs,
-            self.entry_limb_bonus,
+            self.entry_limbs_misc,
         ]
 
     def create_armor_fields(self, parent):
@@ -657,8 +657,10 @@ class CharacterSheetApp:
         self.lbl_training_1.grid(row=0, column=2, padx=5, pady=5, sticky="w")
         self.lbl_focus_1 = tk.Label(parent, text="Focus")
         self.lbl_focus_1.grid(row=0, column=3, padx=5, pady=5, sticky="w")
+        self.lbl_misc_1 = tk.Label(parent, text="Misc")
+        self.lbl_misc_1.grid(row=0, column=4, padx=5, pady=5, sticky="w")
         self.lbl_modifier_1 = tk.Label(parent, text="Modifier")
-        self.lbl_modifier_1.grid(row=0, column=4, padx=5, pady=5, sticky="w")
+        self.lbl_modifier_1.grid(row=0, column=5, padx=5, pady=5, sticky="w")
 
         self.lbl_acrobatics = tk.Label(parent, text="Acrobatics")
         self.lbl_acrobatics.grid(row=1, column=0, padx=5, pady=5, sticky="w")
@@ -668,8 +670,10 @@ class CharacterSheetApp:
         self.entry_acro_training.grid(row=1, column=2, padx=5, pady=5)
         self.entry_acro_focus = tk.Entry(parent, width=1)
         self.entry_acro_focus.grid(row=1, column=3, padx=5, pady=5)
+        self.entry_acro_misc = tk.Entry(parent, width=3)
+        self.entry_acro_misc.grid(row=1, column=4, padx=5, pady=5)
         self.entry_acro_modifier = tk.Entry(parent, width=5)
-        self.entry_acro_modifier.grid(row=1, column=4, padx=5, pady=5)
+        self.entry_acro_modifier.grid(row=1, column=5, padx=5, pady=5)
 
         self.lbl_climb = tk.Label(parent, text="Climb")
         self.lbl_climb.grid(row=2, column=0, padx=5, pady=5, sticky="w")
@@ -679,8 +683,10 @@ class CharacterSheetApp:
         self.entry_climb_training.grid(row=2, column=2, padx=5, pady=5)
         self.entry_climb_focus = tk.Entry(parent, width=1)
         self.entry_climb_focus.grid(row=2, column=3, padx=5, pady=5)
+        self.entry_climb_misc = tk.Entry(parent, width=3)
+        self.entry_climb_misc.grid(row=2, column=4, padx=5, pady=5)
         self.entry_climb_modifier = tk.Entry(parent, width=5)
-        self.entry_climb_modifier.grid(row=2, column=4, padx=5, pady=5)
+        self.entry_climb_modifier.grid(row=2, column=5, padx=5, pady=5)
 
         self.lbl_deception = tk.Label(parent, text="Deception")
         self.lbl_deception.grid(row=3, column=0, padx=5, pady=5, sticky="w")
@@ -690,8 +696,10 @@ class CharacterSheetApp:
         self.entry_deception_training.grid(row=3, column=2, padx=5, pady=5)
         self.entry_deception_focus = tk.Entry(parent, width=1)
         self.entry_deception_focus.grid(row=3, column=3, padx=5, pady=5)
+        self.entry_deception_misc = tk.Entry(parent, width=3)
+        self.entry_deception_misc.grid(row=3, column=4, padx=5, pady=5)
         self.entry_deception_modifier = tk.Entry(parent, width=5)
-        self.entry_deception_modifier.grid(row=3, column=4, padx=5, pady=5)
+        self.entry_deception_modifier.grid(row=3, column=5, padx=5, pady=5)
 
         self.lbl_endurance = tk.Label(parent, text="Endurance")
         self.lbl_endurance.grid(row=4, column=0, padx=5, pady=5, sticky="w")
@@ -701,8 +709,10 @@ class CharacterSheetApp:
         self.entry_endurance_training.grid(row=4, column=2, padx=5, pady=5)
         self.entry_endurance_focus = tk.Entry(parent, width=1)
         self.entry_endurance_focus.grid(row=4, column=3, padx=5, pady=5)
+        self.entry_endurance_misc = tk.Entry(parent, width=3)
+        self.entry_endurance_misc.grid(row=4, column=4, padx=5, pady=5)
         self.entry_endurance_modifier = tk.Entry(parent, width=5)
-        self.entry_endurance_modifier.grid(row=4, column=4, padx=5, pady=5)
+        self.entry_endurance_modifier.grid(row=4, column=5, padx=5, pady=5)
 
         self.lbl_gather_information = tk.Label(parent, text="Gather Information")
         self.lbl_gather_information.grid(row=5, column=0, padx=5, pady=5, sticky="w")
@@ -712,8 +722,10 @@ class CharacterSheetApp:
         self.entry_gather_information_training.grid(row=5, column=2, padx=5, pady=5)
         self.entry_gather_information_focus = tk.Entry(parent, width=1)
         self.entry_gather_information_focus.grid(row=5, column=3, padx=5, pady=5)
+        self.entry_gather_information_misc = tk.Entry(parent, width=3)
+        self.entry_gather_information_misc.grid(row=5, column=4, padx=5, pady=5)
         self.entry_gather_information_modifier = tk.Entry(parent, width=5)
-        self.entry_gather_information_modifier.grid(row=5, column=4, padx=5, pady=5)
+        self.entry_gather_information_modifier.grid(row=5, column=5, padx=5, pady=5)
 
         self.lbl_initiative = tk.Label(parent, text="Initiative")
         self.lbl_initiative.grid(row=6, column=0, padx=5, pady=5, sticky="w")
@@ -723,8 +735,10 @@ class CharacterSheetApp:
         self.entry_initiative_training.grid(row=6, column=2, padx=5, pady=5)
         self.entry_initiative_focus = tk.Entry(parent, width=1)
         self.entry_initiative_focus.grid(row=6, column=3, padx=5, pady=5)
+        self.entry_initiative_misc = tk.Entry(parent, width=3)
+        self.entry_initiative_misc.grid(row=6, column=4, padx=5, pady=5)
         self.entry_initiative_modifier = tk.Entry(parent, width=5)
-        self.entry_initiative_modifier.grid(row=6, column=4, padx=5, pady=5)
+        self.entry_initiative_modifier.grid(row=6, column=5, padx=5, pady=5)
 
         self.lbl_jump = tk.Label(parent, text="Jump")
         self.lbl_jump.grid(row=7, column=0, padx=5, pady=5, sticky="w")
@@ -734,8 +748,10 @@ class CharacterSheetApp:
         self.entry_jump_training.grid(row=7, column=2, padx=5, pady=5)
         self.entry_jump_focus = tk.Entry(parent, width=1)
         self.entry_jump_focus.grid(row=7, column=3, padx=5, pady=5)
+        self.entry_jump_misc = tk.Entry(parent, width=3)
+        self.entry_jump_misc.grid(row=7, column=4, padx=5, pady=5)
         self.entry_jump_modifier = tk.Entry(parent, width=5)
-        self.entry_jump_modifier.grid(row=7, column=4, padx=5, pady=5)
+        self.entry_jump_modifier.grid(row=7, column=5, padx=5, pady=5)
 
         self.lbl_knowledge_bureaucracy = tk.Label(
             parent, text="Knowledge (Bureaucracy)"
@@ -747,8 +763,10 @@ class CharacterSheetApp:
         self.entry_knowledge_bureaucracy_training.grid(row=8, column=2, padx=5, pady=5)
         self.entry_knowledge_bureaucracy_focus = tk.Entry(parent, width=1)
         self.entry_knowledge_bureaucracy_focus.grid(row=8, column=3, padx=5, pady=5)
+        self.entry_knowledge_bureaucracy_misc = tk.Entry(parent, width=3)
+        self.entry_knowledge_bureaucracy_misc.grid(row=8, column=4, padx=5, pady=5)
         self.entry_knowledge_bureaucracy_modifier = tk.Entry(parent, width=5)
-        self.entry_knowledge_bureaucracy_modifier.grid(row=8, column=4, padx=5, pady=5)
+        self.entry_knowledge_bureaucracy_modifier.grid(row=8, column=5, padx=5, pady=5)
 
         self.lbl_knowledge_galactic_lore = tk.Label(
             parent, text="Knowledge (Galactic Lore)"
@@ -764,9 +782,11 @@ class CharacterSheetApp:
         )
         self.entry_knowledge_galactic_lore_focus = tk.Entry(parent, width=1)
         self.entry_knowledge_galactic_lore_focus.grid(row=9, column=3, padx=5, pady=5)
+        self.entry_knowledge_galactic_lore_misc = tk.Entry(parent, width=3)
+        self.entry_knowledge_galactic_lore_misc.grid(row=9, column=4, padx=5, pady=5)
         self.entry_knowledge_galactic_lore_modifier = tk.Entry(parent, width=5)
         self.entry_knowledge_galactic_lore_modifier.grid(
-            row=9, column=4, padx=5, pady=5
+            row=9, column=5, padx=5, pady=5
         )
 
         self.lbl_knowledge_life_science = tk.Label(
@@ -783,9 +803,11 @@ class CharacterSheetApp:
         )
         self.entry_knowledge_life_science_focus = tk.Entry(parent, width=1)
         self.entry_knowledge_life_science_focus.grid(row=10, column=3, padx=5, pady=5)
+        self.entry_knowledge_life_science_misc = tk.Entry(parent, width=3)
+        self.entry_knowledge_life_science_misc.grid(row=10, column=4, padx=5, pady=5)
         self.entry_knowledge_life_science_modifier = tk.Entry(parent, width=5)
         self.entry_knowledge_life_science_modifier.grid(
-            row=10, column=4, padx=5, pady=5
+            row=10, column=5, padx=5, pady=5
         )
 
         self.lbl_knowledge_physical_science = tk.Label(
@@ -804,9 +826,13 @@ class CharacterSheetApp:
         self.entry_knowledge_physical_science_focus.grid(
             row=11, column=3, padx=5, pady=5
         )
+        self.entry_knowledge_physical_science_misc = tk.Entry(parent, width=3)
+        self.entry_knowledge_physical_science_misc.grid(
+            row=11, column=4, padx=5, pady=5
+        )
         self.entry_knowledge_physical_science_modifier = tk.Entry(parent, width=5)
         self.entry_knowledge_physical_science_modifier.grid(
-            row=11, column=4, padx=5, pady=5
+            row=11, column=5, padx=5, pady=5
         )
 
         self.lbl_knowledge_social_science = tk.Label(
@@ -823,164 +849,194 @@ class CharacterSheetApp:
         )
         self.entry_knowledge_social_science_focus = tk.Entry(parent, width=1)
         self.entry_knowledge_social_science_focus.grid(row=12, column=3, padx=5, pady=5)
+        self.entry_knowledge_social_science_misc = tk.Entry(parent, width=3)
+        self.entry_knowledge_social_science_misc.grid(row=12, column=4, padx=5, pady=5)
         self.entry_knowledge_social_science_modifier = tk.Entry(parent, width=5)
         self.entry_knowledge_social_science_modifier.grid(
-            row=12, column=4, padx=5, pady=5
+            row=12, column=5, padx=5, pady=5
         )
 
         self.lbl_skills_2 = tk.Label(parent, text="Skill")
-        self.lbl_skills_2.grid(row=0, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_skills_2.grid(row=0, column=6, padx=5, pady=5, sticky="w")
         self.lbl_stat_2 = tk.Label(parent, text="Stat")
-        self.lbl_stat_2.grid(row=0, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_stat_2.grid(row=0, column=7, padx=5, pady=5, sticky="w")
         self.lbl_training_2 = tk.Label(parent, text="Training")
-        self.lbl_training_2.grid(row=0, column=7, padx=5, pady=5, sticky="w")
+        self.lbl_training_2.grid(row=0, column=8, padx=5, pady=5, sticky="w")
         self.lbl_focus_2 = tk.Label(parent, text="Focus")
-        self.lbl_focus_2.grid(row=0, column=8, padx=5, pady=5, sticky="w")
+        self.lbl_focus_2.grid(row=0, column=9, padx=5, pady=5, sticky="w")
+        self.lbl_misc_2 = tk.Label(parent, text="Misc")
+        self.lbl_misc_2.grid(row=0, column=10, padx=5, pady=5, sticky="w")
         self.lbl_modifier_2 = tk.Label(parent, text="Modifier")
-        self.lbl_modifier_2.grid(row=0, column=9, padx=5, pady=5, sticky="w")
+        self.lbl_modifier_2.grid(row=0, column=11, padx=5, pady=5, sticky="w")
 
         self.lbl_knowledge_tactics = tk.Label(parent, text="Knowledge (Tactics)")
-        self.lbl_knowledge_tactics.grid(row=1, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_knowledge_tactics.grid(row=1, column=6, padx=5, pady=5, sticky="w")
         self.lbl_int = tk.Label(parent, text="Int")
-        self.lbl_int.grid(row=1, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_int.grid(row=1, column=7, padx=5, pady=5, sticky="w")
         self.entry_knowledge_tactics_training = tk.Entry(parent, width=1)
-        self.entry_knowledge_tactics_training.grid(row=1, column=7, padx=5, pady=5)
+        self.entry_knowledge_tactics_training.grid(row=1, column=8, padx=5, pady=5)
         self.entry_knowledge_tactics_focus = tk.Entry(parent, width=1)
-        self.entry_knowledge_tactics_focus.grid(row=1, column=8, padx=5, pady=5)
+        self.entry_knowledge_tactics_focus.grid(row=1, column=9, padx=5, pady=5)
+        self.entry_knowledge_tactics_misc = tk.Entry(parent, width=3)
+        self.entry_knowledge_tactics_misc.grid(row=1, column=10, padx=5, pady=5)
         self.entry_knowledge_tactics_modifier = tk.Entry(parent, width=5)
-        self.entry_knowledge_tactics_modifier.grid(row=1, column=9, padx=5, pady=5)
+        self.entry_knowledge_tactics_modifier.grid(row=1, column=11, padx=5, pady=5)
 
         self.lbl_knowledge_technology = tk.Label(parent, text="Knowledge (Technology)")
-        self.lbl_knowledge_technology.grid(row=2, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_knowledge_technology.grid(row=2, column=6, padx=5, pady=5, sticky="w")
         self.lbl_int = tk.Label(parent, text="Int")
-        self.lbl_int.grid(row=2, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_int.grid(row=2, column=7, padx=5, pady=5, sticky="w")
         self.entry_knowledge_technology_training = tk.Entry(parent, width=1)
-        self.entry_knowledge_technology_training.grid(row=2, column=7, padx=5, pady=5)
+        self.entry_knowledge_technology_training.grid(row=2, column=8, padx=5, pady=5)
         self.entry_knowledge_technology_focus = tk.Entry(parent, width=1)
-        self.entry_knowledge_technology_focus.grid(row=2, column=8, padx=5, pady=5)
+        self.entry_knowledge_technology_focus.grid(row=2, column=9, padx=5, pady=5)
+        self.entry_knowledge_technology_misc = tk.Entry(parent, width=3)
+        self.entry_knowledge_technology_misc.grid(row=2, column=10, padx=5, pady=5)
         self.entry_knowledge_technology_modifier = tk.Entry(parent, width=5)
-        self.entry_knowledge_technology_modifier.grid(row=2, column=9, padx=5, pady=5)
+        self.entry_knowledge_technology_modifier.grid(row=2, column=11, padx=5, pady=5)
 
         self.lbl_mechanics = tk.Label(parent, text="Mechanics")
-        self.lbl_mechanics.grid(row=3, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_mechanics.grid(row=3, column=6, padx=5, pady=5, sticky="w")
         self.lbl_int = tk.Label(parent, text="Int")
-        self.lbl_int.grid(row=3, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_int.grid(row=3, column=7, padx=5, pady=5, sticky="w")
         self.entry_mechanics_training = tk.Entry(parent, width=1)
-        self.entry_mechanics_training.grid(row=3, column=7, padx=5, pady=5)
+        self.entry_mechanics_training.grid(row=3, column=8, padx=5, pady=5)
         self.entry_mechanics_focus = tk.Entry(parent, width=1)
-        self.entry_mechanics_focus.grid(row=3, column=8, padx=5, pady=5)
+        self.entry_mechanics_focus.grid(row=3, column=9, padx=5, pady=5)
+        self.entry_mechanics_misc = tk.Entry(parent, width=3)
+        self.entry_mechanics_misc.grid(row=3, column=10, padx=5, pady=5)
         self.entry_mechanics_modifier = tk.Entry(parent, width=5)
-        self.entry_mechanics_modifier.grid(row=3, column=9, padx=5, pady=5)
+        self.entry_mechanics_modifier.grid(row=3, column=11, padx=5, pady=5)
 
         self.lbl_perception = tk.Label(parent, text="Perception")
-        self.lbl_perception.grid(row=4, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_perception.grid(row=4, column=6, padx=5, pady=5, sticky="w")
         self.lbl_wis = tk.Label(parent, text="Wis")
-        self.lbl_wis.grid(row=4, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_wis.grid(row=4, column=7, padx=5, pady=5, sticky="w")
         self.entry_perception_training = tk.Entry(parent, width=1)
-        self.entry_perception_training.grid(row=4, column=7, padx=5, pady=5)
+        self.entry_perception_training.grid(row=4, column=8, padx=5, pady=5)
         self.entry_perception_focus = tk.Entry(parent, width=1)
-        self.entry_perception_focus.grid(row=4, column=8, padx=5, pady=5)
+        self.entry_perception_focus.grid(row=4, column=9, padx=5, pady=5)
+        self.entry_perception_misc = tk.Entry(parent, width=3)
+        self.entry_perception_misc.grid(row=4, column=10, padx=5, pady=5)
         self.entry_perception_modifier = tk.Entry(parent, width=5)
-        self.entry_perception_modifier.grid(row=4, column=9, padx=5, pady=5)
+        self.entry_perception_modifier.grid(row=4, column=11, padx=5, pady=5)
 
         self.lbl_persuasion = tk.Label(parent, text="Persuasion")
-        self.lbl_persuasion.grid(row=5, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_persuasion.grid(row=5, column=6, padx=5, pady=5, sticky="w")
         self.lbl_cha = tk.Label(parent, text="Cha")
-        self.lbl_cha.grid(row=5, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_cha.grid(row=5, column=7, padx=5, pady=5, sticky="w")
         self.entry_persuasion_training = tk.Entry(parent, width=1)
-        self.entry_persuasion_training.grid(row=5, column=7, padx=5, pady=5)
+        self.entry_persuasion_training.grid(row=5, column=8, padx=5, pady=5)
         self.entry_persuasion_focus = tk.Entry(parent, width=1)
-        self.entry_persuasion_focus.grid(row=5, column=8, padx=5, pady=5)
+        self.entry_persuasion_focus.grid(row=5, column=9, padx=5, pady=5)
+        self.entry_persuasion_misc = tk.Entry(parent, width=3)
+        self.entry_persuasion_misc.grid(row=5, column=10, padx=5, pady=5)
         self.entry_persuasion_modifier = tk.Entry(parent, width=5)
-        self.entry_persuasion_modifier.grid(row=5, column=9, padx=5, pady=5)
+        self.entry_persuasion_modifier.grid(row=5, column=11, padx=5, pady=5)
 
         self.lbl_pilot = tk.Label(parent, text="Pilot")
-        self.lbl_pilot.grid(row=6, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_pilot.grid(row=6, column=6, padx=5, pady=5, sticky="w")
         self.lbl_dex = tk.Label(parent, text="Dex")
-        self.lbl_dex.grid(row=6, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_dex.grid(row=6, column=7, padx=5, pady=5, sticky="w")
         self.entry_pilot_training = tk.Entry(parent, width=1)
-        self.entry_pilot_training.grid(row=6, column=7, padx=5, pady=5)
+        self.entry_pilot_training.grid(row=6, column=8, padx=5, pady=5)
         self.entry_pilot_focus = tk.Entry(parent, width=1)
-        self.entry_pilot_focus.grid(row=6, column=8, padx=5, pady=5)
+        self.entry_pilot_focus.grid(row=6, column=9, padx=5, pady=5)
+        self.entry_pilot_misc = tk.Entry(parent, width=3)
+        self.entry_pilot_misc.grid(row=6, column=10, padx=5, pady=5)
         self.entry_pilot_modifier = tk.Entry(parent, width=5)
-        self.entry_pilot_modifier.grid(row=6, column=9, padx=5, pady=5)
+        self.entry_pilot_modifier.grid(row=6, column=11, padx=5, pady=5)
 
         self.lbl_ride = tk.Label(parent, text="Ride")
-        self.lbl_ride.grid(row=7, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_ride.grid(row=7, column=6, padx=5, pady=5, sticky="w")
         self.lbl_dex = tk.Label(parent, text="Dex")
-        self.lbl_dex.grid(row=7, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_dex.grid(row=7, column=7, padx=5, pady=5, sticky="w")
         self.entry_ride_training = tk.Entry(parent, width=1)
-        self.entry_ride_training.grid(row=7, column=7, padx=5, pady=5)
+        self.entry_ride_training.grid(row=7, column=8, padx=5, pady=5)
         self.entry_ride_focus = tk.Entry(parent, width=1)
-        self.entry_ride_focus.grid(row=7, column=8, padx=5, pady=5)
+        self.entry_ride_focus.grid(row=7, column=9, padx=5, pady=5)
+        self.entry_ride_misc = tk.Entry(parent, width=3)
+        self.entry_ride_misc.grid(row=7, column=10, padx=5, pady=5)
         self.entry_ride_modifier = tk.Entry(parent, width=5)
-        self.entry_ride_modifier.grid(row=7, column=9, padx=5, pady=5)
+        self.entry_ride_modifier.grid(row=7, column=11, padx=5, pady=5)
 
         self.lbl_stealth = tk.Label(parent, text="Stealth")
-        self.lbl_stealth.grid(row=8, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_stealth.grid(row=8, column=6, padx=5, pady=5, sticky="w")
         self.lbl_dex = tk.Label(parent, text="Dex")
-        self.lbl_dex.grid(row=8, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_dex.grid(row=8, column=7, padx=5, pady=5, sticky="w")
         self.entry_stealth_training = tk.Entry(parent, width=1)
-        self.entry_stealth_training.grid(row=8, column=7, padx=5, pady=5)
+        self.entry_stealth_training.grid(row=8, column=8, padx=5, pady=5)
         self.entry_stealth_focus = tk.Entry(parent, width=1)
-        self.entry_stealth_focus.grid(row=8, column=8, padx=5, pady=5)
+        self.entry_stealth_focus.grid(row=8, column=9, padx=5, pady=5)
+        self.entry_stealth_misc = tk.Entry(parent, width=3)
+        self.entry_stealth_misc.grid(row=8, column=10, padx=5, pady=5)
         self.entry_stealth_modifier = tk.Entry(parent, width=5)
-        self.entry_stealth_modifier.grid(row=8, column=9, padx=5, pady=5)
+        self.entry_stealth_modifier.grid(row=8, column=11, padx=5, pady=5)
 
         self.lbl_survival = tk.Label(parent, text="Survival")
-        self.lbl_survival.grid(row=9, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_survival.grid(row=9, column=6, padx=5, pady=5, sticky="w")
         self.lbl_wis = tk.Label(parent, text="Wis")
-        self.lbl_wis.grid(row=9, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_wis.grid(row=9, column=7, padx=5, pady=5, sticky="w")
         self.entry_survival_training = tk.Entry(parent, width=1)
-        self.entry_survival_training.grid(row=9, column=7, padx=5, pady=5)
+        self.entry_survival_training.grid(row=9, column=8, padx=5, pady=5)
         self.entry_survival_focus = tk.Entry(parent, width=1)
-        self.entry_survival_focus.grid(row=9, column=8, padx=5, pady=5)
+        self.entry_survival_focus.grid(row=9, column=9, padx=5, pady=5)
+        self.entry_survival_misc = tk.Entry(parent, width=3)
+        self.entry_survival_misc.grid(row=9, column=10, padx=5, pady=5)
         self.entry_survival_modifier = tk.Entry(parent, width=5)
-        self.entry_survival_modifier.grid(row=9, column=9, padx=5, pady=5)
+        self.entry_survival_modifier.grid(row=9, column=11, padx=5, pady=5)
 
         self.lbl_swim = tk.Label(parent, text="Swim")
-        self.lbl_swim.grid(row=10, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_swim.grid(row=10, column=6, padx=5, pady=5, sticky="w")
         self.lbl_str = tk.Label(parent, text="Str")
-        self.lbl_str.grid(row=10, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_str.grid(row=10, column=7, padx=5, pady=5, sticky="w")
         self.entry_swim_training = tk.Entry(parent, width=1)
-        self.entry_swim_training.grid(row=10, column=7, padx=5, pady=5)
+        self.entry_swim_training.grid(row=10, column=8, padx=5, pady=5)
         self.entry_swim_focus = tk.Entry(parent, width=1)
-        self.entry_swim_focus.grid(row=10, column=8, padx=5, pady=5)
+        self.entry_swim_focus.grid(row=10, column=9, padx=5, pady=5)
+        self.entry_swim_misc = tk.Entry(parent, width=3)
+        self.entry_swim_misc.grid(row=10, column=10, padx=5, pady=5)
         self.entry_swim_modifier = tk.Entry(parent, width=5)
-        self.entry_swim_modifier.grid(row=10, column=9, padx=5, pady=5)
+        self.entry_swim_modifier.grid(row=10, column=11, padx=5, pady=5)
 
         self.lbl_treat_injury = tk.Label(parent, text="Treat Injury")
-        self.lbl_treat_injury.grid(row=11, column=5, padx=5, pady=5, sticky="w")
-        self.lbl_int = tk.Label(parent, text="Int")
-        self.lbl_int.grid(row=11, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_treat_injury.grid(row=11, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_wis = tk.Label(parent, text="Wis")
+        self.lbl_wis.grid(row=11, column=7, padx=5, pady=5, sticky="w")
         self.entry_treat_injury_training = tk.Entry(parent, width=1)
-        self.entry_treat_injury_training.grid(row=11, column=7, padx=5, pady=5)
+        self.entry_treat_injury_training.grid(row=11, column=8, padx=5, pady=5)
         self.entry_treat_injury_focus = tk.Entry(parent, width=1)
-        self.entry_treat_injury_focus.grid(row=11, column=8, padx=5, pady=5)
+        self.entry_treat_injury_focus.grid(row=11, column=9, padx=5, pady=5)
+        self.entry_treat_injury_misc = tk.Entry(parent, width=3)
+        self.entry_treat_injury_misc.grid(row=11, column=10, padx=5, pady=5)
         self.entry_treat_injury_modifier = tk.Entry(parent, width=5)
-        self.entry_treat_injury_modifier.grid(row=11, column=9, padx=5, pady=5)
+        self.entry_treat_injury_modifier.grid(row=11, column=11, padx=5, pady=5)
 
         self.lbl_use_computer = tk.Label(parent, text="Use Computer")
-        self.lbl_use_computer.grid(row=12, column=5, padx=5, pady=5, sticky="w")
+        self.lbl_use_computer.grid(row=12, column=6, padx=5, pady=5, sticky="w")
         self.lbl_int = tk.Label(parent, text="Int")
-        self.lbl_int.grid(row=12, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_int.grid(row=12, column=7, padx=5, pady=5, sticky="w")
         self.entry_use_computer_training = tk.Entry(parent, width=1)
-        self.entry_use_computer_training.grid(row=12, column=7, padx=5, pady=5)
+        self.entry_use_computer_training.grid(row=12, column=8, padx=5, pady=5)
         self.entry_use_computer_focus = tk.Entry(parent, width=1)
-        self.entry_use_computer_focus.grid(row=12, column=8, padx=5, pady=5)
+        self.entry_use_computer_focus.grid(row=12, column=9, padx=5, pady=5)
+        self.entry_use_computer_misc = tk.Entry(parent, width=3)
+        self.entry_use_computer_misc.grid(row=12, column=10, padx=5, pady=5)
         self.entry_use_computer_modifier = tk.Entry(parent, width=5)
-        self.entry_use_computer_modifier.grid(row=12, column=9, padx=5, pady=5)
+        self.entry_use_computer_modifier.grid(row=12, column=11, padx=5, pady=5)
 
         self.lbl_use_the_force = tk.Label(parent, text="Use The Force")
-        self.lbl_use_the_force.grid(row=13, column=5, padx=5, pady=5, sticky="w")
-        self.lbl_cha_will = tk.Label(parent, text="Cha/Will")
-        self.lbl_cha_will.grid(row=13, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_use_the_force.grid(row=13, column=6, padx=5, pady=5, sticky="w")
+        self.lbl_wis = tk.Label(parent, text="Wis")
+        self.lbl_wis.grid(row=13, column=7, padx=5, pady=5, sticky="w")
         self.entry_use_the_force_training = tk.Entry(parent, width=1)
-        self.entry_use_the_force_training.grid(row=13, column=7, padx=5, pady=5)
+        self.entry_use_the_force_training.grid(row=13, column=8, padx=5, pady=5)
         self.entry_use_the_force_focus = tk.Entry(parent, width=1)
-        self.entry_use_the_force_focus.grid(row=13, column=8, padx=5, pady=5)
+        self.entry_use_the_force_focus.grid(row=13, column=9, padx=5, pady=5)
+        self.entry_use_the_force_misc = tk.Entry(parent, width=3)
+        self.entry_use_the_force_misc.grid(row=13, column=10, padx=5, pady=5)
         self.entry_use_the_force_modifier = tk.Entry(parent, width=5)
-        self.entry_use_the_force_modifier.grid(row=13, column=9, padx=5, pady=5)
+        self.entry_use_the_force_modifier.grid(row=13, column=11, padx=5, pady=5)
 
         skills_entries = [
             self.entry_acro_training,
@@ -1623,21 +1679,84 @@ class CharacterSheetApp:
                 },
                 "Defenses": {
                     "Fortitude": {
-                        "Total": self.entry_fortitude_1.get(),
+                        "Total": str(
+                            int(
+                                self.entry_fortitude_2.get()
+                                if self.entry_fortitude_2.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_fortitude_3.get()
+                                if self.entry_fortitude_3.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_fortitude_4.get()
+                                if self.entry_fortitude_4.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_fortitude_5.get()
+                                if self.entry_fortitude_5.get()
+                                else 0
+                            )
+                        ),
                         "Class Bonus": self.entry_fortitude_2.get(),
                         "Stat Bonus": self.entry_fortitude_3.get(),
                         "Armor Bonus": self.entry_fortitude_4.get(),
                         "Misc": self.entry_fortitude_5.get(),
                     },
                     "Reflex": {
-                        "Total": self.entry_reflex_1.get(),
+                        "Total": str(
+                            int(
+                                self.entry_reflex_2.get()
+                                if self.entry_reflex_2.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_reflex_3.get()
+                                if self.entry_reflex_3.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_reflex_4.get()
+                                if self.entry_reflex_4.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_reflex_5.get()
+                                if self.entry_reflex_5.get()
+                                else 0
+                            )
+                        ),
                         "Class Bonus": self.entry_reflex_2.get(),
                         "Stat Bonus": self.entry_reflex_3.get(),
                         "Armor Bonus": self.entry_reflex_4.get(),
                         "Misc": self.entry_reflex_5.get(),
                     },
                     "Will": {
-                        "Total": self.entry_will_1.get(),
+                        "Total": str(
+                            int(
+                                self.entry_will_2.get()
+                                if self.entry_will_2.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_will_3.get()
+                                if self.entry_will_3.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_will_4.get()
+                                if self.entry_will_4.get()
+                                else 0
+                            )
+                            + int(
+                                self.entry_will_5.get()
+                                if self.entry_will_5.get()
+                                else 0
+                            )
+                        ),
                         "Class Bonus": self.entry_will_2.get(),
                         "Stat Bonus": self.entry_will_3.get(),
                         "Armor Bonus": self.entry_will_4.get(),
@@ -1645,18 +1764,40 @@ class CharacterSheetApp:
                     },
                 },
                 "Damage Thresholds": {
+                    "Fortitude": self.entry_fortitude_1.get(),
                     "Torso": {
-                        "Total": self.entry_torso.get(),
-                        "Fortitude Bonus": self.entry_fortitude_bonus.get(),
-                        "Misc": self.entry_misc.get(),
+                        "Total": str(
+                            int(self.entry_fortitude_1.get())
+                            + int(
+                                self.entry_torso_misc.get()
+                                if self.entry_torso_misc.get()
+                                else 0
+                            )
+                            + 10
+                        ),
+                        "Misc": self.entry_torso_misc.get(),
                     },
                     "Head": {
-                        "Total": self.entry_head.get(),
-                        "Torso Bonus": self.entry_head_bonus.get(),
+                        "Total": str(
+                            floor(int(self.entry_torso.get()) / 2)
+                            + int(
+                                self.entry_head_misc.get()
+                                if self.entry_head_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Misc": self.entry_head_misc.get(),
                     },
                     "Limbs": {
-                        "Total": self.entry_limbs.get(),
-                        "Torso Bonus": self.entry_limb_bonus.get(),
+                        "Total": str(
+                            floor(int(self.entry_torso.get()) / 2)
+                            + int(
+                                self.entry_limbs_misc.get()
+                                if self.entry_limbs_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Misc": self.entry_limbs_misc.get(),
                     },
                 },
                 "Armor": {
@@ -1706,151 +1847,702 @@ class CharacterSheetApp:
                 "Skills": {
                     "Acrobatics": {
                         "Stat": "Dex",
-                        "Total": self.entry_acro_modifier.get(),
-                        "Training": self.entry_acro_training.get(),
-                        "Focus": self.entry_acro_focus.get(),
+                        "Total": str(
+                            int(self.entry_dexterity_mod.get())
+                            + int(self.entry_acro_training.get())
+                            + int(self.entry_acro_focus.get())
+                            + int(
+                                self.entry_acro_misc.get()
+                                if self.entry_acro_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_acro_training.get() == "1"
+                            or self.entry_acro_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_acro_focus.get() == "1"
+                            or self.entry_acro_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_acro_misc.get(),
                     },
                     "Climb": {
                         "Stat": "Str",
-                        "Total": self.entry_climb_modifier.get(),
-                        "Training": self.entry_climb_training.get(),
-                        "Focus": self.entry_climb_focus.get(),
+                        "Total": str(
+                            int(self.entry_strength_mod.get())
+                            + int(self.entry_climb_training.get())
+                            + int(self.entry_climb_focus.get())
+                            + int(
+                                self.entry_climb_misc.get()
+                                if self.entry_climb_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_climb_training.get() == "1"
+                            or self.entry_climb_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_climb_focus.get() == "1"
+                            or self.entry_climb_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_climb_misc.get(),
                     },
                     "Deception": {
                         "Stat": "Cha",
-                        "Total": self.entry_deception_modifier.get(),
-                        "Training": self.entry_deception_training.get(),
-                        "Focus": self.entry_deception_focus.get(),
+                        "Total": str(
+                            int(self.entry_charisma_mod.get())
+                            + int(self.entry_deception_training.get())
+                            + int(self.entry_deception_focus.get())
+                            + int(
+                                self.entry_deception_misc.get()
+                                if self.entry_deception_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_deception_training.get() == "1"
+                            or self.entry_deception_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_deception_focus.get() == "1"
+                            or self.entry_deception_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_deception_misc.get(),
                     },
                     "Endurance": {
                         "Stat": "Con",
-                        "Total": self.entry_endurance_modifier.get(),
-                        "Training": self.entry_endurance_training.get(),
-                        "Focus": self.entry_endurance_focus.get(),
+                        "Total": str(
+                            int(self.entry_constitution_mod.get())
+                            + int(self.entry_endurance_training.get())
+                            + int(self.entry_endurance_focus.get())
+                            + int(
+                                self.entry_endurance_misc.get()
+                                if self.entry_endurance_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_endurance_training.get() == "1"
+                            or self.entry_endurance_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_endurance_focus.get() == "1"
+                            or self.entry_endurance_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_endurance_misc.get(),
                     },
                     "Gather Information": {
                         "Stat": "Cha",
-                        "Total": self.entry_gather_information_modifier.get(),
-                        "Training": self.entry_gather_information_training.get(),
-                        "Focus": self.entry_gather_information_focus.get(),
+                        "Total": str(
+                            int(self.entry_charisma_mod.get())
+                            + int(self.entry_gather_information_training.get())
+                            + int(self.entry_gather_information_focus.get())
+                            + int(
+                                self.entry_gather_information_misc.get()
+                                if self.entry_gather_information_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_gather_information_training.get() == "1"
+                            or self.entry_gather_information_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_gather_information_focus.get() == "1"
+                            or self.entry_gather_information_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_gather_information_misc.get(),
                     },
                     "Initiative": {
                         "Stat": "Dex",
-                        "Total": self.entry_initiative_modifier.get(),
-                        "Training": self.entry_initiative_training.get(),
-                        "Focus": self.entry_initiative_focus.get(),
+                        "Total": str(
+                            int(self.entry_dexterity_mod.get())
+                            + int(self.entry_initiative_training.get())
+                            + int(self.entry_initiative_focus.get())
+                            + int(
+                                self.entry_initiative_misc.get()
+                                if self.entry_initiative_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_initiative_training.get() == "1"
+                            or self.entry_initiative_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_initiative_focus.get() == "1"
+                            or self.entry_initiative_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_initiative_misc.get(),
                     },
                     "Jump": {
                         "Stat": "Str",
-                        "Total": self.entry_jump_modifier.get(),
-                        "Training": self.entry_jump_training.get(),
-                        "Focus": self.entry_jump_focus.get(),
+                        "Total": str(
+                            int(self.entry_strength_mod.get())
+                            + int(self.entry_jump_training.get())
+                            + int(self.entry_jump_focus.get())
+                            + int(
+                                self.entry_jump_misc.get()
+                                if self.entry_jump_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_jump_training.get() == "1"
+                            or self.entry_jump_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_jump_focus.get() == "1"
+                            or self.entry_jump_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_jump_misc.get(),
                     },
                     "Knowledge": {
                         "Stat": "Int",
                         "Type": {
                             "Bureaucracy": {
-                                "Total": self.entry_knowledge_bureaucracy_modifier.get(),
-                                "Training": self.entry_knowledge_bureaucracy_training.get(),
-                                "Focus": self.entry_knowledge_bureaucracy_focus.get(),
+                                "Total": str(
+                                    int(self.entry_intelligence_mod.get())
+                                    + int(
+                                        self.entry_knowledge_bureaucracy_training.get()
+                                    )
+                                    + int(self.entry_knowledge_bureaucracy_focus.get())
+                                    + int(
+                                        self.entry_knowledge_bureaucracy_misc.get()
+                                        if self.entry_knowledge_bureaucracy_misc.get()
+                                        else 0
+                                    )
+                                ),
+                                "Training": (
+                                    5
+                                    if self.entry_knowledge_bureaucracy_training.get()
+                                    == "1"
+                                    or self.entry_knowledge_bureaucracy_training.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Focus": (
+                                    5
+                                    if self.entry_knowledge_bureaucracy_focus.get()
+                                    == "1"
+                                    or self.entry_knowledge_bureaucracy_focus.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Misc": self.entry_knowledge_bureaucracy_misc.get(),
                             },
                             "Galactic Lore": {
-                                "Total": self.entry_knowledge_galactic_lore_modifier.get(),
-                                "Training": self.entry_knowledge_galactic_lore_training.get(),
-                                "Focus": self.entry_knowledge_galactic_lore_focus.get(),
+                                "Total": str(
+                                    int(self.entry_intelligence_mod.get())
+                                    + int(
+                                        self.entry_knowledge_galactic_lore_training.get()
+                                    )
+                                    + int(
+                                        self.entry_knowledge_galactic_lore_focus.get()
+                                    )
+                                    + int(
+                                        self.entry_knowledge_galactic_lore_misc.get()
+                                        if self.entry_knowledge_galactic_lore_misc.get()
+                                        else 0
+                                    )
+                                ),
+                                "Training": (
+                                    5
+                                    if self.entry_knowledge_galactic_lore_training.get()
+                                    == "1"
+                                    or self.entry_knowledge_galactic_lore_training.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Focus": (
+                                    5
+                                    if self.entry_knowledge_galactic_lore_focus.get()
+                                    == "1"
+                                    or self.entry_knowledge_galactic_lore_focus.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Misc": self.entry_knowledge_galactic_lore_misc.get(),
                             },
                             "Life Science": {
-                                "Total": self.entry_knowledge_life_science_modifier.get(),
-                                "Training": self.entry_knowledge_life_science_training.get(),
-                                "Focus": self.entry_knowledge_life_science_focus.get(),
+                                "Total": str(
+                                    int(self.entry_intelligence_mod.get())
+                                    + int(
+                                        self.entry_knowledge_life_science_training.get()
+                                    )
+                                    + int(self.entry_knowledge_life_science_focus.get())
+                                    + int(
+                                        self.entry_knowledge_life_science_misc.get()
+                                        if self.entry_knowledge_life_science_misc.get()
+                                        else 0
+                                    )
+                                ),
+                                "Training": (
+                                    5
+                                    if self.entry_knowledge_life_science_training.get()
+                                    == "1"
+                                    or self.entry_knowledge_life_science_training.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Focus": (
+                                    5
+                                    if self.entry_knowledge_life_science_focus.get()
+                                    == "1"
+                                    or self.entry_knowledge_life_science_focus.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Misc": self.entry_knowledge_life_science_misc.get(),
                             },
                             "Physical Science": {
-                                "Total": self.entry_knowledge_physical_science_modifier.get(),
-                                "Training": self.entry_knowledge_physical_science_training.get(),
-                                "Focus": self.entry_knowledge_physical_science_focus.get(),
+                                "Total": str(
+                                    int(self.entry_intelligence_mod.get())
+                                    + int(
+                                        self.entry_knowledge_physical_science_training.get()
+                                    )
+                                    + int(
+                                        self.entry_knowledge_physical_science_focus.get()
+                                    )
+                                    + int(
+                                        self.entry_knowledge_physical_science_misc.get()
+                                        if self.entry_knowledge_physical_science_misc.get()
+                                        else 0
+                                    )
+                                ),
+                                "Training": (
+                                    5
+                                    if self.entry_knowledge_physical_science_training.get()
+                                    == "1"
+                                    or self.entry_knowledge_physical_science_training.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Focus": (
+                                    5
+                                    if self.entry_knowledge_physical_science_focus.get()
+                                    == "1"
+                                    or self.entry_knowledge_physical_science_focus.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Misc": self.entry_knowledge_physical_science_misc.get(),
                             },
                             "Social Science": {
-                                "Total": self.entry_knowledge_social_science_modifier.get(),
-                                "Training": self.entry_knowledge_social_science_training.get(),
-                                "Focus": self.entry_knowledge_social_science_focus.get(),
+                                "Total": str(
+                                    int(self.entry_intelligence_mod.get())
+                                    + int(
+                                        self.entry_knowledge_social_science_training.get()
+                                    )
+                                    + int(
+                                        self.entry_knowledge_social_science_focus.get()
+                                    )
+                                    + int(
+                                        self.entry_knowledge_social_science_misc.get()
+                                        if self.entry_knowledge_social_science_misc.get()
+                                        else 0
+                                    )
+                                ),
+                                "Training": (
+                                    5
+                                    if self.entry_knowledge_social_science_training.get()
+                                    == "1"
+                                    or self.entry_knowledge_social_science_training.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Focus": (
+                                    5
+                                    if self.entry_knowledge_social_science_focus.get()
+                                    == "1"
+                                    or self.entry_knowledge_social_science_focus.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Misc": self.entry_knowledge_social_science_misc.get(),
                             },
                             "Tactics": {
-                                "Total": self.entry_knowledge_tactics_modifier.get(),
-                                "Training": self.entry_knowledge_tactics_training.get(),
-                                "Focus": self.entry_knowledge_tactics_focus.get(),
+                                "Total": str(
+                                    int(self.entry_intelligence_mod.get())
+                                    + int(self.entry_knowledge_tactics_training.get())
+                                    + int(self.entry_knowledge_tactics_focus.get())
+                                    + int(
+                                        self.entry_knowledge_tactics_misc.get()
+                                        if self.entry_knowledge_tactics_misc.get()
+                                        else 0
+                                    )
+                                ),
+                                "Training": (
+                                    5
+                                    if self.entry_knowledge_tactics_training.get()
+                                    == "1"
+                                    or self.entry_knowledge_tactics_training.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Focus": (
+                                    5
+                                    if self.entry_knowledge_tactics_focus.get() == "1"
+                                    or self.entry_knowledge_tactics_focus.get() == "5"
+                                    else 0
+                                ),
+                                "Misc": self.entry_knowledge_tactics_misc.get(),
                             },
                             "Technology": {
-                                "Total": self.entry_knowledge_technology_modifier.get(),
-                                "Training": self.entry_knowledge_technology_training.get(),
-                                "Focus": self.entry_knowledge_technology_focus.get(),
+                                "Total": str(
+                                    int(self.entry_intelligence_mod.get())
+                                    + int(
+                                        self.entry_knowledge_technology_training.get()
+                                    )
+                                    + int(self.entry_knowledge_technology_focus.get())
+                                    + int(
+                                        self.entry_knowledge_technology_misc.get()
+                                        if self.entry_knowledge_technology_misc.get()
+                                        else 0
+                                    )
+                                ),
+                                "Training": (
+                                    5
+                                    if self.entry_knowledge_technology_training.get()
+                                    == "1"
+                                    or self.entry_knowledge_technology_training.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Focus": (
+                                    5
+                                    if self.entry_knowledge_technology_focus.get()
+                                    == "1"
+                                    or self.entry_knowledge_technology_focus.get()
+                                    == "5"
+                                    else 0
+                                ),
+                                "Misc": self.entry_knowledge_technology_misc.get(),
                             },
                         },
                     },
                     "Mechanics": {
                         "Stat": "Int",
-                        "Total": self.entry_mechanics_modifier.get(),
-                        "Training": self.entry_mechanics_training.get(),
-                        "Focus": self.entry_mechanics_focus.get(),
+                        "Total": str(
+                            int(self.entry_intelligence_mod.get())
+                            + int(self.entry_mechanics_training.get())
+                            + int(self.entry_mechanics_focus.get())
+                            + int(
+                                self.entry_mechanics_misc.get()
+                                if self.entry_mechanics_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_mechanics_training.get() == "1"
+                            or self.entry_mechanics_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_mechanics_focus.get() == "1"
+                            or self.entry_mechanics_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_mechanics_misc.get(),
                     },
                     "Perception": {
                         "Stat": "Wis",
-                        "Total": self.entry_perception_modifier.get(),
-                        "Training": self.entry_perception_training.get(),
-                        "Focus": self.entry_perception_focus.get(),
+                        "Total": str(
+                            int(self.entry_wisdom_mod.get())
+                            + int(self.entry_perception_training.get())
+                            + int(self.entry_perception_focus.get())
+                            + int(
+                                self.entry_perception_misc.get()
+                                if self.entry_perception_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_perception_training.get() == "1"
+                            or self.entry_perception_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_perception_focus.get() == "1"
+                            or self.entry_perception_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_perception_misc.get(),
                     },
                     "Persuasion": {
                         "Stat": "Cha",
-                        "Total": self.entry_persuasion_modifier.get(),
-                        "Training": self.entry_persuasion_training.get(),
-                        "Focus": self.entry_persuasion_focus.get(),
+                        "Total": str(
+                            int(self.entry_charisma_mod.get())
+                            + int(self.entry_persuasion_training.get())
+                            + int(self.entry_persuasion_focus.get())
+                            + int(
+                                self.entry_persuasion_misc.get()
+                                if self.entry_persuasion_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_persuasion_training.get() == "1"
+                            or self.entry_persuasion_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_persuasion_focus.get() == "1"
+                            or self.entry_persuasion_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_persuasion_misc.get(),
                     },
                     "Pilot": {
                         "Stat": "Dex",
-                        "Total": self.entry_pilot_modifier.get(),
-                        "Training": self.entry_pilot_training.get(),
-                        "Focus": self.entry_pilot_focus.get(),
+                        "Total": str(
+                            int(self.entry_dexterity_mod.get())
+                            + int(self.entry_pilot_training.get())
+                            + int(self.entry_pilot_focus.get())
+                            + int(
+                                self.entry_pilot_misc.get()
+                                if self.entry_pilot_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_pilot_training.get() == "1"
+                            or self.entry_pilot_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_pilot_focus.get() == "1"
+                            or self.entry_pilot_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_pilot_misc.get(),
                     },
                     "Ride": {
                         "Stat": "Dex",
-                        "Total": self.entry_ride_modifier.get(),
-                        "Training": self.entry_ride_training.get(),
-                        "Focus": self.entry_ride_focus.get(),
+                        "Total": str(
+                            int(self.entry_dexterity_mod.get())
+                            + int(self.entry_ride_training.get())
+                            + int(self.entry_ride_focus.get())
+                            + int(
+                                self.entry_ride_misc.get()
+                                if self.entry_ride_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_ride_training.get() == "1"
+                            or self.entry_ride_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_ride_focus.get() == "1"
+                            or self.entry_ride_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_ride_misc.get(),
                     },
                     "Stealth": {
                         "Stat": "Dex",
-                        "Total": self.entry_stealth_modifier.get(),
-                        "Training": self.entry_stealth_training.get(),
-                        "Focus": self.entry_stealth_focus.get(),
+                        "Total": str(
+                            int(self.entry_dexterity_mod.get())
+                            + int(self.entry_stealth_training.get())
+                            + int(self.entry_stealth_focus.get())
+                            + int(
+                                self.entry_stealth_misc.get()
+                                if self.entry_stealth_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_stealth_training.get() == "1"
+                            or self.entry_stealth_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_stealth_focus.get() == "1"
+                            or self.entry_stealth_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_stealth_misc.get(),
                     },
                     "Survival": {
                         "Stat": "Wis",
-                        "Total": self.entry_survival_modifier.get(),
-                        "Training": self.entry_survival_training.get(),
-                        "Focus": self.entry_survival_focus.get(),
+                        "Total": str(
+                            int(self.entry_wisdom_mod.get())
+                            + int(self.entry_survival_training.get())
+                            + int(self.entry_survival_focus.get())
+                            + int(
+                                self.entry_survival_misc.get()
+                                if self.entry_survival_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_survival_training.get() == "1"
+                            or self.entry_survival_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_survival_focus.get() == "1"
+                            or self.entry_survival_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_survival_misc.get(),
                     },
                     "Swim": {
                         "Stat": "Str",
-                        "Total": self.entry_swim_modifier.get(),
-                        "Training": self.entry_swim_training.get(),
-                        "Focus": self.entry_swim_focus.get(),
+                        "Total": str(
+                            int(self.entry_strength_mod.get())
+                            + int(self.entry_swim_training.get())
+                            + int(self.entry_swim_focus.get())
+                            + int(
+                                self.entry_swim_misc.get()
+                                if self.entry_swim_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_swim_training.get() == "1"
+                            or self.entry_swim_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_swim_focus.get() == "1"
+                            or self.entry_swim_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_swim_misc.get(),
                     },
                     "Treat Injury": {
                         "Stat": "Int",
-                        "Total": self.entry_treat_injury_modifier.get(),
-                        "Training": self.entry_treat_injury_training.get(),
-                        "Focus": self.entry_treat_injury_focus.get(),
+                        "Total": str(
+                            int(self.entry_intelligence_mod.get())
+                            + int(self.entry_treat_injury_training.get())
+                            + int(self.entry_treat_injury_focus.get())
+                            + int(
+                                self.entry_treat_injury_misc.get()
+                                if self.entry_treat_injury_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_treat_injury_training.get() == "1"
+                            or self.entry_treat_injury_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_treat_injury_focus.get() == "1"
+                            or self.entry_treat_injury_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_treat_injury_misc.get(),
                     },
                     "Use Computer": {
                         "Stat": "Int",
-                        "Total": self.entry_use_computer_modifier.get(),
-                        "Training": self.entry_use_computer_training.get(),
-                        "Focus": self.entry_use_computer_focus.get(),
+                        "Total": str(
+                            int(self.entry_intelligence_mod.get())
+                            + int(self.entry_use_computer_training.get())
+                            + int(self.entry_use_computer_focus.get())
+                            + int(
+                                self.entry_use_computer_misc.get()
+                                if self.entry_use_computer_misc.get()
+                                else 0
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_use_computer_training.get() == "1"
+                            or self.entry_use_computer_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_use_computer_focus.get() == "1"
+                            or self.entry_use_computer_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_use_computer_misc.get(),
                     },
                     "Use the Force": {
                         "Stat": "Cha/Will",
-                        "Total": self.entry_use_the_force_modifier.get(),
-                        "Training": self.entry_use_the_force_training.get(),
-                        "Focus": self.entry_use_the_force_focus.get(),
+                        "Total": (
+                            str(
+                                int(self.entry_use_the_force_training.get())
+                                + int(self.entry_use_the_force_focus.get())
+                                + int(
+                                    self.entry_use_the_force_misc.get()
+                                    if self.entry_use_the_force_misc.get()
+                                    else 0
+                                )
+                                + int(
+                                    self.entry_charisma_mod.get()
+                                    if int(self.entry_charisma_mod.get())
+                                    > int(self.entry_willpower_mod.get())
+                                    else int(self.entry_willpower_mod.get())
+                                )
+                            )
+                        ),
+                        "Training": (
+                            5
+                            if self.entry_use_the_force_training.get() == "1"
+                            or self.entry_use_the_force_training.get() == "5"
+                            else 0
+                        ),
+                        "Focus": (
+                            5
+                            if self.entry_use_the_force_focus.get() == "1"
+                            or self.entry_use_the_force_focus.get() == "5"
+                            else 0
+                        ),
+                        "Misc": self.entry_use_the_force_misc.get(),
                     },
                 },
                 "Force Schools": {
@@ -2171,32 +2863,39 @@ class CharacterSheetApp:
             self.entry_will_5.insert(0, data["Defenses"]["Will"]["Misc"])
 
             # Damage Thresholds
-            self.entry_torso.delete(0, tk.END)
-            self.entry_torso.insert(0, data["Damage Thresholds"]["Torso"]["Total"])
+            if "Fortitude" in data["Damage Thresholds"].keys():
+                self.entry_fortitude.delete(0, tk.END)
+                self.entry_fortitude.insert(0, data["Damage Thresholds"]["Fortitude"])
 
-            self.entry_fortitude.delete(0, tk.END)
-            self.entry_fortitude.insert(
-                0, data["Damage Thresholds"]["Torso"]["Fortitude Bonus"]
-            )
+            if "Total" in data["Damage Thresholds"]["Torso"].keys():
+                self.entry_torso.delete(0, tk.END)
+                self.entry_torso.insert(0, data["Damage Thresholds"]["Torso"]["Total"])
 
-            self.entry_misc.delete(0, tk.END)
-            self.entry_misc.insert(0, data["Damage Thresholds"]["Torso"]["Misc"])
+            if "Misc" in data["Damage Thresholds"]["Torso"].keys():
+                self.entry_torso_misc.delete(0, tk.END)
+                self.entry_torso_misc.insert(
+                    0, data["Damage Thresholds"]["Torso"]["Misc"]
+                )
 
-            self.entry_head.delete(0, tk.END)
-            self.entry_head.insert(0, data["Damage Thresholds"]["Head"]["Total"])
+            if "Total" in data["Damage Thresholds"]["Head"].keys():
+                self.entry_head.delete(0, tk.END)
+                self.entry_head.insert(0, data["Damage Thresholds"]["Head"]["Total"])
 
-            self.entry_head_bonus.delete(0, tk.END)
-            self.entry_head_bonus.insert(
-                0, data["Damage Thresholds"]["Head"]["Torso Bonus"]
-            )
+            if "Misc" in data["Damage Thresholds"]["Head"].keys():
+                self.entry_head_misc.delete(0, tk.END)
+                self.entry_head_misc.insert(
+                    0, data["Damage Thresholds"]["Head"]["Misc"]
+                )
 
-            self.entry_limbs.delete(0, tk.END)
-            self.entry_limbs.insert(0, data["Damage Thresholds"]["Limbs"]["Total"])
+            if "Total" in data["Damage Thresholds"]["Limbs"].keys():
+                self.entry_limbs.delete(0, tk.END)
+                self.entry_limbs.insert(0, data["Damage Thresholds"]["Limbs"]["Total"])
 
-            self.entry_limb_bonus.delete(0, tk.END)
-            self.entry_limb_bonus.insert(
-                0, data["Damage Thresholds"]["Limbs"]["Torso Bonus"]
-            )
+            if "Misc" in data["Damage Thresholds"]["Limbs"].keys():
+                self.entry_limbs_misc.delete(0, tk.END)
+                self.entry_limbs_misc.insert(
+                    0, data["Damage Thresholds"]["Limbs"]["Misc"]
+                )
 
             # Armor
             self.entry_armor.delete(0, tk.END)
@@ -2297,6 +2996,10 @@ class CharacterSheetApp:
             self.entry_acro_focus.delete(0, tk.END)
             self.entry_acro_focus.insert(0, data["Skills"]["Acrobatics"]["Focus"])
 
+            if "Misc" in data["Skills"]["Acrobatics"].keys():
+                self.entry_acro_misc.delete(0, tk.END)
+                self.entry_acro_misc.insert(0, data["Skills"]["Acrobatics"]["Misc"])
+
             self.entry_acro_modifier.delete(0, tk.END)
             self.entry_acro_modifier.insert(0, data["Skills"]["Acrobatics"]["Total"])
 
@@ -2305,6 +3008,10 @@ class CharacterSheetApp:
 
             self.entry_climb_focus.delete(0, tk.END)
             self.entry_climb_focus.insert(0, data["Skills"]["Climb"]["Focus"])
+
+            if "Misc" in data["Skills"]["Climb"].keys():
+                self.entry_climb_misc.delete(0, tk.END)
+                self.entry_climb_misc.insert(0, data["Skills"]["Climb"]["Misc"])
 
             self.entry_climb_modifier.delete(0, tk.END)
             self.entry_climb_modifier.insert(0, data["Skills"]["Climb"]["Total"])
@@ -2316,6 +3023,10 @@ class CharacterSheetApp:
 
             self.entry_deception_focus.delete(0, tk.END)
             self.entry_deception_focus.insert(0, data["Skills"]["Deception"]["Focus"])
+
+            if "Misc" in data["Skills"]["Deception"].keys():
+                self.entry_deception_misc.delete(0, tk.END)
+                self.entry_deception_misc.insert(0, data["Skills"]["Deception"]["Misc"])
 
             self.entry_deception_modifier.delete(0, tk.END)
             self.entry_deception_modifier.insert(
@@ -2329,6 +3040,10 @@ class CharacterSheetApp:
 
             self.entry_endurance_focus.delete(0, tk.END)
             self.entry_endurance_focus.insert(0, data["Skills"]["Endurance"]["Focus"])
+
+            if "Misc" in data["Skills"]["Endurance"].keys():
+                self.entry_endurance_misc.delete(0, tk.END)
+                self.entry_endurance_misc.insert(0, data["Skills"]["Endurance"]["Misc"])
 
             self.entry_endurance_modifier.delete(0, tk.END)
             self.entry_endurance_modifier.insert(
@@ -2345,6 +3060,12 @@ class CharacterSheetApp:
                 0, data["Skills"]["Gather Information"]["Focus"]
             )
 
+            if "Misc" in data["Skills"]["Gather Information"].keys():
+                self.entry_gather_information_misc.delete(0, tk.END)
+                self.entry_gather_information_misc.insert(
+                    0, data["Skills"]["Gather Information"]["Misc"]
+                )
+
             self.entry_gather_information_modifier.delete(0, tk.END)
             self.entry_gather_information_modifier.insert(
                 0, data["Skills"]["Gather Information"]["Total"]
@@ -2358,6 +3079,12 @@ class CharacterSheetApp:
             self.entry_initiative_focus.delete(0, tk.END)
             self.entry_initiative_focus.insert(0, data["Skills"]["Initiative"]["Focus"])
 
+            if "Misc" in data["Skills"]["Initiative"].keys():
+                self.entry_initiative_misc.delete(0, tk.END)
+                self.entry_initiative_misc.insert(
+                    0, data["Skills"]["Initiative"]["Misc"]
+                )
+
             self.entry_initiative_modifier.delete(0, tk.END)
             self.entry_initiative_modifier.insert(
                 0, data["Skills"]["Initiative"]["Total"]
@@ -2368,6 +3095,10 @@ class CharacterSheetApp:
 
             self.entry_jump_focus.delete(0, tk.END)
             self.entry_jump_focus.insert(0, data["Skills"]["Jump"]["Focus"])
+
+            if "Misc" in data["Skills"]["Jump"].keys():
+                self.entry_jump_misc.delete(0, tk.END)
+                self.entry_jump_misc.insert(0, data["Skills"]["Jump"]["Misc"])
 
             self.entry_jump_modifier.delete(0, tk.END)
             self.entry_jump_modifier.insert(0, data["Skills"]["Jump"]["Total"])
@@ -2381,6 +3112,12 @@ class CharacterSheetApp:
             self.entry_knowledge_bureaucracy_focus.insert(
                 0, data["Skills"]["Knowledge"]["Type"]["Bureaucracy"]["Focus"]
             )
+
+            if "Misc" in data["Skills"]["Knowledge"]["Type"]["Bureaucracy"].keys():
+                self.entry_knowledge_bureaucracy_misc.delete(0, tk.END)
+                self.entry_knowledge_bureaucracy_misc.insert(
+                    0, data["Skills"]["Knowledge"]["Type"]["Bureaucracy"]["Misc"]
+                )
 
             self.entry_knowledge_bureaucracy_modifier.delete(0, tk.END)
             self.entry_knowledge_bureaucracy_modifier.insert(
@@ -2397,6 +3134,12 @@ class CharacterSheetApp:
                 0, data["Skills"]["Knowledge"]["Type"]["Galactic Lore"]["Focus"]
             )
 
+            if "Misc" in data["Skills"]["Knowledge"]["Type"]["Galactic Lore"].keys():
+                self.entry_knowledge_galactic_lore_misc.delete(0, tk.END)
+                self.entry_knowledge_galactic_lore_misc.insert(
+                    0, data["Skills"]["Knowledge"]["Type"]["Galactic Lore"]["Misc"]
+                )
+
             self.entry_knowledge_galactic_lore_modifier.delete(0, tk.END)
             self.entry_knowledge_galactic_lore_modifier.insert(
                 0, data["Skills"]["Knowledge"]["Type"]["Galactic Lore"]["Total"]
@@ -2411,6 +3154,12 @@ class CharacterSheetApp:
             self.entry_knowledge_life_science_focus.insert(
                 0, data["Skills"]["Knowledge"]["Type"]["Life Science"]["Focus"]
             )
+
+            if "Misc" in data["Skills"]["Knowledge"]["Type"]["Life Science"].keys():
+                self.entry_knowledge_life_science_misc.delete(0, tk.END)
+                self.entry_knowledge_life_science_misc.insert(
+                    0, data["Skills"]["Knowledge"]["Type"]["Life Science"]["Misc"]
+                )
 
             self.entry_knowledge_life_science_modifier.delete(0, tk.END)
             self.entry_knowledge_life_science_modifier.insert(
@@ -2427,6 +3176,12 @@ class CharacterSheetApp:
                 0, data["Skills"]["Knowledge"]["Type"]["Physical Science"]["Focus"]
             )
 
+            if "Misc" in data["Skills"]["Knowledge"]["Type"]["Physical Science"].keys():
+                self.entry_knowledge_physical_science_misc.delete(0, tk.END)
+                self.entry_knowledge_physical_science_misc.insert(
+                    0, data["Skills"]["Knowledge"]["Type"]["Physical Science"]["Misc"]
+                )
+
             self.entry_knowledge_physical_science_modifier.delete(0, tk.END)
             self.entry_knowledge_physical_science_modifier.insert(
                 0, data["Skills"]["Knowledge"]["Type"]["Physical Science"]["Total"]
@@ -2441,6 +3196,12 @@ class CharacterSheetApp:
             self.entry_knowledge_social_science_focus.insert(
                 0, data["Skills"]["Knowledge"]["Type"]["Social Science"]["Focus"]
             )
+
+            if "Misc" in data["Skills"]["Knowledge"]["Type"]["Social Science"].keys():
+                self.entry_knowledge_social_science_misc.delete(0, tk.END)
+                self.entry_knowledge_social_science_misc.insert(
+                    0, data["Skills"]["Knowledge"]["Type"]["Social Science"]["Misc"]
+                )
 
             self.entry_knowledge_social_science_modifier.delete(0, tk.END)
             self.entry_knowledge_social_science_modifier.insert(
@@ -2457,6 +3218,12 @@ class CharacterSheetApp:
                 0, data["Skills"]["Knowledge"]["Type"]["Tactics"]["Focus"]
             )
 
+            if "Misc" in data["Skills"]["Knowledge"]["Type"]["Tactics"].keys():
+                self.entry_knowledge_tactics_misc.delete(0, tk.END)
+                self.entry_knowledge_tactics_misc.insert(
+                    0, data["Skills"]["Knowledge"]["Type"]["Tactics"]["Misc"]
+                )
+
             self.entry_knowledge_tactics_modifier.delete(0, tk.END)
             self.entry_knowledge_tactics_modifier.insert(
                 0, data["Skills"]["Knowledge"]["Type"]["Tactics"]["Total"]
@@ -2472,6 +3239,12 @@ class CharacterSheetApp:
                 0, data["Skills"]["Knowledge"]["Type"]["Technology"]["Focus"]
             )
 
+            if "Misc" in data["Skills"]["Knowledge"]["Type"]["Technology"].keys():
+                self.entry_knowledge_technology_misc.delete(0, tk.END)
+                self.entry_knowledge_technology_misc.insert(
+                    0, data["Skills"]["Knowledge"]["Type"]["Technology"]["Misc"]
+                )
+
             self.entry_knowledge_technology_modifier.delete(0, tk.END)
             self.entry_knowledge_technology_modifier.insert(
                 0, data["Skills"]["Knowledge"]["Type"]["Technology"]["Total"]
@@ -2484,6 +3257,10 @@ class CharacterSheetApp:
 
             self.entry_mechanics_focus.delete(0, tk.END)
             self.entry_mechanics_focus.insert(0, data["Skills"]["Mechanics"]["Focus"])
+
+            if "Misc" in data["Skills"]["Mechanics"].keys():
+                self.entry_mechanics_misc.delete(0, tk.END)
+                self.entry_mechanics_misc.insert(0, data["Skills"]["Mechanics"]["Misc"])
 
             self.entry_mechanics_modifier.delete(0, tk.END)
             self.entry_mechanics_modifier.insert(
@@ -2498,6 +3275,12 @@ class CharacterSheetApp:
             self.entry_perception_focus.delete(0, tk.END)
             self.entry_perception_focus.insert(0, data["Skills"]["Perception"]["Focus"])
 
+            if "Misc" in data["Skills"]["Perception"].keys():
+                self.entry_perception_misc.delete(0, tk.END)
+                self.entry_perception_misc.insert(
+                    0, data["Skills"]["Perception"]["Misc"]
+                )
+
             self.entry_perception_modifier.delete(0, tk.END)
             self.entry_perception_modifier.insert(
                 0, data["Skills"]["Perception"]["Total"]
@@ -2511,6 +3294,12 @@ class CharacterSheetApp:
             self.entry_persuasion_focus.delete(0, tk.END)
             self.entry_persuasion_focus.insert(0, data["Skills"]["Persuasion"]["Focus"])
 
+            if "Misc" in data["Skills"]["Persuasion"].keys():
+                self.entry_persuasion_misc.delete(0, tk.END)
+                self.entry_persuasion_misc.insert(
+                    0, data["Skills"]["Persuasion"]["Misc"]
+                )
+
             self.entry_persuasion_modifier.delete(0, tk.END)
             self.entry_persuasion_modifier.insert(
                 0, data["Skills"]["Persuasion"]["Total"]
@@ -2522,6 +3311,10 @@ class CharacterSheetApp:
             self.entry_pilot_focus.delete(0, tk.END)
             self.entry_pilot_focus.insert(0, data["Skills"]["Pilot"]["Focus"])
 
+            if "Misc" in data["Skills"]["Pilot"].keys():
+                self.entry_pilot_misc.delete(0, tk.END)
+                self.entry_pilot_misc.insert(0, data["Skills"]["Pilot"]["Misc"])
+
             self.entry_pilot_modifier.delete(0, tk.END)
             self.entry_pilot_modifier.insert(0, data["Skills"]["Pilot"]["Total"])
 
@@ -2531,6 +3324,10 @@ class CharacterSheetApp:
             self.entry_ride_focus.delete(0, tk.END)
             self.entry_ride_focus.insert(0, data["Skills"]["Ride"]["Focus"])
 
+            if "Misc" in data["Skills"]["Ride"].keys():
+                self.entry_ride_misc.delete(0, tk.END)
+                self.entry_ride_misc.insert(0, data["Skills"]["Ride"]["Misc"])
+
             self.entry_ride_modifier.delete(0, tk.END)
             self.entry_ride_modifier.insert(0, data["Skills"]["Ride"]["Total"])
 
@@ -2539,6 +3336,10 @@ class CharacterSheetApp:
 
             self.entry_stealth_focus.delete(0, tk.END)
             self.entry_stealth_focus.insert(0, data["Skills"]["Stealth"]["Focus"])
+
+            if "Misc" in data["Skills"]["Stealth"].keys():
+                self.entry_stealth_misc.delete(0, tk.END)
+                self.entry_stealth_misc.insert(0, data["Skills"]["Stealth"]["Misc"])
 
             self.entry_stealth_modifier.delete(0, tk.END)
             self.entry_stealth_modifier.insert(0, data["Skills"]["Stealth"]["Total"])
@@ -2551,6 +3352,10 @@ class CharacterSheetApp:
             self.entry_survival_focus.delete(0, tk.END)
             self.entry_survival_focus.insert(0, data["Skills"]["Survival"]["Focus"])
 
+            if "Misc" in data["Skills"]["Survival"].keys():
+                self.entry_survival_misc.delete(0, tk.END)
+                self.entry_survival_misc.insert(0, data["Skills"]["Survival"]["Misc"])
+
             self.entry_survival_modifier.delete(0, tk.END)
             self.entry_survival_modifier.insert(0, data["Skills"]["Survival"]["Total"])
 
@@ -2559,6 +3364,10 @@ class CharacterSheetApp:
 
             self.entry_swim_focus.delete(0, tk.END)
             self.entry_swim_focus.insert(0, data["Skills"]["Swim"]["Focus"])
+
+            if "Misc" in data["Skills"]["Swim"].keys():
+                self.entry_swim_misc.delete(0, tk.END)
+                self.entry_swim_misc.insert(0, data["Skills"]["Swim"]["Misc"])
 
             self.entry_swim_modifier.delete(0, tk.END)
             self.entry_swim_modifier.insert(0, data["Skills"]["Swim"]["Total"])
@@ -2572,6 +3381,12 @@ class CharacterSheetApp:
             self.entry_treat_injury_focus.insert(
                 0, data["Skills"]["Treat Injury"]["Focus"]
             )
+
+            if "Misc" in data["Skills"]["Treat Injury"].keys():
+                self.entry_treat_injury_misc.delete(0, tk.END)
+                self.entry_treat_injury_misc.insert(
+                    0, data["Skills"]["Treat Injury"]["Misc"]
+                )
 
             self.entry_treat_injury_modifier.delete(0, tk.END)
             self.entry_treat_injury_modifier.insert(
@@ -2588,6 +3403,12 @@ class CharacterSheetApp:
                 0, data["Skills"]["Use Computer"]["Focus"]
             )
 
+            if "Misc" in data["Skills"]["Use Computer"].keys():
+                self.entry_use_computer_misc.delete(0, tk.END)
+                self.entry_use_computer_misc.insert(
+                    0, data["Skills"]["Use Computer"]["Misc"]
+                )
+
             self.entry_use_computer_modifier.delete(0, tk.END)
             self.entry_use_computer_modifier.insert(
                 0, data["Skills"]["Use Computer"]["Total"]
@@ -2602,6 +3423,12 @@ class CharacterSheetApp:
             self.entry_use_the_force_focus.insert(
                 0, data["Skills"]["Use the Force"]["Focus"]
             )
+
+            if "Misc" in data["Skills"]["Use the Force"].keys():
+                self.entry_use_the_force_misc.delete(0, tk.END)
+                self.entry_use_the_force_misc.insert(
+                    0, data["Skills"]["Use the Force"]["Misc"]
+                )
 
             self.entry_use_the_force_modifier.delete(0, tk.END)
             self.entry_use_the_force_modifier.insert(

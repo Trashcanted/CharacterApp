@@ -64,6 +64,11 @@ the same as Mac or Linux, but `python character_app.py`
   - *Example*: `3d8 * 2` (Roll three 8-sided dice and multiply by two).
   - *Example*: `3d8 / 2` (Roll three 8-sided dice and divide by two, then round down).
 
+## Rolling a Dice Notation Multiple Times
+- **Repetition**: Roll the same dice notation multiple times
+  - *Example*: `2^d20+5` (Roll d20+5 twice).
+  - *Example*: `5^3d8*2+5` (Roll 3d8*2+5 five times).
+
 ## Examples
 1. `2d10 + 5`: Roll two 10-sided dice, add 5.
 2. `d20 - 3`: Roll one 20-sided die, subtract 3.
