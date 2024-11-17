@@ -179,7 +179,9 @@ def roll_dice_expression(notation):
                         result = math.floor(result / number)
                         multipliers.append(f"1 / {number}")
                     case _:
-                        messagebox.showerror("Error", f"Unknown operator: {op}")
+                        messagebox.showerror(
+                            "Error", f"Unknown operator: {op}"
+                        )
 
             elif len(parsed) == 4:  # Handling dice rolls with an operator
                 num_dice, sides, roll_type = parsed[1], parsed[2], parsed[3]
@@ -198,7 +200,9 @@ def roll_dice_expression(notation):
                     case "ce":
                         rolls = xcey(num_dice, sides)
                     case _:
-                        messagebox.showerror("Error", f"Unknown roll type: {roll_type}")
+                        messagebox.showerror(
+                            "Error", f"Unknown roll type: {roll_type}"
+                        )
 
                 match op:
                     case "+":
@@ -210,7 +214,9 @@ def roll_dice_expression(notation):
                     case "/":
                         result /= sum(rolls)
                     case _:
-                        messagebox.showerror("Error", f"Unknown operator: {op}")
+                        messagebox.showerror(
+                            "Error", f"Unknown operator: {op}"
+                        )
 
                 all_rolls.extend(rolls)
 
@@ -284,18 +290,25 @@ class DiceRollerApp(tk.Tk):
             results = roll_dice_expression(notation)
             self.result_text.configure(state="normal")
             self.result_text.delete(1.0, tk.END)
-            for i, (result, rolls, modifiers, multipliers) in enumerate(results):
+            for i, (
+                result,
+                rolls,
+                modifiers,
+                multipliers,
+            ) in enumerate(results):
                 self.result_text.insert(
                     tk.END, f"Result of roll set {i + 1}: {result}\n"
                 )
                 self.result_text.insert(tk.END, f"All rolls: {rolls}\n")
                 if modifiers:
                     self.result_text.insert(
-                        tk.END, f"Modifier(s): {' + '.join(map(str, modifiers))}\n"
+                        tk.END,
+                        f"Modifier(s): {' + '.join(map(str, modifiers))}\n"
                     )
                 if multipliers:
                     self.result_text.insert(
-                        tk.END, f"Multiplier(s): {' * '.join(map(str, multipliers))}\n"
+                        tk.END,
+                        f"Multiplier(s): {' * '.join(map(str, multipliers))}\n"
                     )
                 self.result_text.insert(tk.END, "\n")
             self.result_text.configure(state="disabled")
