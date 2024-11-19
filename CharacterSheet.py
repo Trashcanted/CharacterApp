@@ -286,6 +286,14 @@ class CharacterSheetApp:
         self.will_mod = tk.Entry(parent, width=10)
         self.will_mod.grid(row=7, column=2, padx=5, pady=5)
 
+        # Dark Side
+        self.lbl_dark = tk.Label(parent, text="Dark Side")
+        self.lbl_dark.grid(row=8, column=0, padx=5, pady=5, sticky="w")
+        self.dark_score = tk.Entry(parent, width=10)
+        self.dark_score.grid(row=8, column=1, padx=5, pady=5)
+        self.dark_mod = tk.Entry(parent, width=10)
+        self.dark_mod.grid(row=8, column=2, padx=5, pady=5)
+
         # Store the entries in a list if needed
         self.stat_entries = [
             self.str_score,
@@ -1738,6 +1746,19 @@ class CharacterSheetApp:
                             )
                         ),
                     },
+                    "Dark Side": {
+                        "Score": self.dark_score.get(),
+                        "Mod": str(
+                            floor(
+                                (
+                                    int(
+                                        self.dark_score.get() if
+                                        self.dark_score.get() else 0
+                                    ) - 10
+                                ) / 2
+                            )
+                        ),
+                    },
                 },
                 "Defenses": {
                     "Fortitude": {
@@ -3124,6 +3145,13 @@ class CharacterSheetApp:
 
             self.will_mod.delete(0, tk.END)
             self.will_mod.insert(0, data["Stats"]["Willpower"]["Mod"])
+
+            if "Dark Side" in data["Stats"].keys():
+                self.dark_score.delete(0, tk.END)
+                self.dark_score.insert(0, data["Stats"]["Dark Side"]["Score"])
+
+                self.dark_mod.delete(0, tk.END)
+                self.dark_mod.insert(0, data["Stats"]["Dark Side"]["Mod"])
 
             # Defenses
             self.fortitude_1.delete(0, tk.END)
