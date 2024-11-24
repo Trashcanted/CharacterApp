@@ -1039,8 +1039,8 @@ class CharacterSheetApp:
 
         self.lbl_use_force = tk.Label(parent, text="Use The Force")
         self.lbl_use_force.grid(row=13, column=6, padx=5, pady=5, sticky="w")
-        self.lbl_wis = tk.Label(parent, text="Wis")
-        self.lbl_wis.grid(row=13, column=7, padx=5, pady=5, sticky="w")
+        self.lbl_cha_will = tk.Label(parent, text="Cha/Will")
+        self.lbl_cha_will.grid(row=13, column=7, padx=5, pady=5, sticky="w")
         self.use_force_train = tk.Entry(parent, width=1)
         self.use_force_train.grid(row=13, column=8, padx=5, pady=5)
         self.use_force_focus = tk.Entry(parent, width=1)
