@@ -32,50 +32,50 @@
     "Stats": {
         "Strength": {
             "Score": "",
-            "Mod": ""
+            "Mod": "-5"
         },
         "Dexterity": {
             "Score": "",
-            "Mod": ""
+            "Mod": "-5"
         },
         "Constitution": {
             "Score": "",
-            "Mod": ""
+            "Mod": "-5"
         },
         "Intelligence": {
             "Score": "",
-            "Mod": ""
+            "Mod": "-5"
         },
         "Wisdom": {
             "Score": "",
-            "Mod": ""
+            "Mod": "-5"
         },
         "Charisma": {
             "Score": "",
-            "Mod": ""
+            "Mod": "-5"
         },
         "Willpower": {
             "Score": "",
-            "Mod": ""
+            "Mod": "-5"
         }
     },
     "Defenses": {
         "Fortitude": {
-            "Total": "",
+            "Total": "0",
             "Class Bonus": "",
             "Stat Bonus": "",
             "Armor Bonus": "",
             "Misc": ""
         },
         "Reflex": {
-            "Total": "",
+            "Total": "0",
             "Class Bonus": "",
             "Stat Bonus": "",
             "Armor Bonus": "",
             "Misc": ""
         },
         "Will": {
-            "Total": "",
+            "Total": "0",
             "Class Bonus": "",
             "Stat Bonus": "",
             "Armor Bonus": "",
@@ -83,18 +83,18 @@
         }
     },
     "Damage Thresholds": {
+        "Fortitude": "0",
         "Torso": {
-            "Total": "",
-            "Fortitude Bonus": "",
+            "Total": "10",
             "Misc": ""
         },
         "Head": {
-            "Total": "",
-            "Torso Bonus": ""
+            "Total": "0",
+            "Misc": ""
         },
         "Limbs": {
-            "Total": "",
-            "Torso Bonus": ""
+            "Total": "0",
+            "Misc": ""
         }
     },
     "Armor": {
@@ -144,151 +144,176 @@
     "Skills": {
         "Acrobatics": {
             "Stat": "Dex",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Climb": {
             "Stat": "Str",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Deception": {
             "Stat": "Cha",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Endurance": {
             "Stat": "Con",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Gather Information": {
             "Stat": "Cha",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Initiative": {
             "Stat": "Dex",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Jump": {
             "Stat": "Str",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Knowledge": {
             "Stat": "Int",
             "Type": {
                 "Bureaucracy": {
-                    "Total": "",
-                    "Training": "",
-                    "Focus": ""
+                    "Total": "0",
+                    "Training": 0,
+                    "Focus": 0,
+                    "Misc": ""
                 },
                 "Galactic Lore": {
-                    "Total": "",
-                    "Training": "",
-                    "Focus": ""
+                    "Total": "0",
+                    "Training": 0,
+                    "Focus": 0,
+                    "Misc": ""
                 },
                 "Life Science": {
-                    "Total": "",
-                    "Training": "",
-                    "Focus": ""
+                    "Total": "0",
+                    "Training": 0,
+                    "Focus": 0,
+                    "Misc": ""
                 },
                 "Physical Science": {
-                    "Total": "",
-                    "Training": "",
-                    "Focus": ""
+                    "Total": "0",
+                    "Training": 0,
+                    "Focus": 0,
+                    "Misc": ""
                 },
                 "Social Science": {
-                    "Total": "",
-                    "Training": "",
-                    "Focus": ""
+                    "Total": "0",
+                    "Training": 0,
+                    "Focus": 0,
+                    "Misc": ""
                 },
                 "Tactics": {
-                    "Total": "",
-                    "Training": "",
-                    "Focus": ""
+                    "Total": "0",
+                    "Training": 0,
+                    "Focus": 0,
+                    "Misc": ""
                 },
                 "Technology": {
-                    "Total": "",
-                    "Training": "",
-                    "Focus": ""
+                    "Total": "0",
+                    "Training": 0,
+                    "Focus": 0,
+                    "Misc": ""
                 }
             }
         },
         "Mechanics": {
             "Stat": "Int",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Perception": {
             "Stat": "Wis",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Persuasion": {
             "Stat": "Cha",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Pilot": {
             "Stat": "Dex",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Ride": {
             "Stat": "Dex",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Stealth": {
             "Stat": "Dex",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Survival": {
             "Stat": "Wis",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Swim": {
             "Stat": "Str",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Treat Injury": {
             "Stat": "Int",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Use Computer": {
             "Stat": "Int",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         },
         "Use the Force": {
             "Stat": "Cha/Will",
-            "Total": "",
-            "Training": "",
-            "Focus": ""
+            "Total": "0",
+            "Training": 0,
+            "Focus": 0,
+            "Misc": ""
         }
     },
     "Force Schools": {

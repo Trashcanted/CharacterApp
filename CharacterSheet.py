@@ -1013,8 +1013,8 @@ class CharacterSheetApp:
 
         self.lbl_injury = tk.Label(parent, text="Treat Injury")
         self.lbl_injury.grid(row=11, column=6, padx=5, pady=5, sticky="w")
-        self.lbl_wis = tk.Label(parent, text="Wis")
-        self.lbl_wis.grid(row=11, column=7, padx=5, pady=5, sticky="w")
+        self.lbl_int = tk.Label(parent, text="Int")
+        self.lbl_int.grid(row=11, column=7, padx=5, pady=5, sticky="w")
         self.injury_train = tk.Entry(parent, width=1)
         self.injury_train.grid(row=11, column=8, padx=5, pady=5)
         self.injury_focus = tk.Entry(parent, width=1)
