@@ -31,26 +31,29 @@ def parse_single_notation(notation):
     """
     Parses a single dice notation and returns the number of dice, the number of sides, and the type of roll.
     """
-    match = re.match(r"(?:(\d*)[dfrce](\d+))", notation)
+    match = re.match(r"(?:(\d*)[dfrce](\d+)|(\d+)ce(\d+))", notation)
 
     if not match:
         raise ValueError("Invalid dice notation")
 
-    num_dice = int(match.group(1) or 1)
-    sides = int(match.group(2))
-
-    if "ce" in notation:
+    if match.group(3):  # Handling "{number1}ce{number2}"
+        num_dice = int(match.group(3))
+        sides = int(match.group(4))
         roll_type = "ce"
-    elif "c" in notation:
-        roll_type = "c"
-    elif "e" in notation:
-        roll_type = "e"
-    elif "r" in notation:
-        roll_type = "r"
-    elif "f" in notation:
-        roll_type = "f"
     else:
-        roll_type = "d"
+        num_dice = int(match.group(1) or 1)
+        sides = int(match.group(2))
+
+        if "c" in notation:
+            roll_type = "c"
+        elif "e" in notation:
+            roll_type = "e"
+        elif "r" in notation:
+            roll_type = "r"
+        elif "f" in notation:
+            roll_type = "f"
+        else:
+            roll_type = "d"
 
     return num_dice, sides, roll_type
 
