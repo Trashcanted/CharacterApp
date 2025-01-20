@@ -4,12 +4,12 @@ from math import floor
 from tkinter import filedialog, messagebox, ttk
 
 
-class CharacterSheetApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Stellar Fantasies Character Sheet")
+class CharacterSheetApp(tk.Frame):
+    def __init__(self, parent, controller):
+        super().__init__(parent)
+        self.controller = controller
 
-        self.notebook = ttk.Notebook(self.root)
+        self.notebook = ttk.Notebook(self)
         self.notebook.pack(fill="both", expand=True)
 
         self.create_tabs()
@@ -1597,7 +1597,7 @@ class CharacterSheetApp:
         ]
 
     def create_buttons(self):
-        self.buttons_frame = tk.Frame(self.root)
+        self.buttons_frame = tk.Frame(self)
         self.buttons_frame.pack(
             fill="both",
             expand="yes",

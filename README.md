@@ -4,7 +4,7 @@ Install python from python.org
 
 ## Mac or Linux
 
-Run the character app with `python3 character_app.py` on in the terminal
+Run the character app with `python3 character_app.py` in the terminal
 
 ## Windows
 

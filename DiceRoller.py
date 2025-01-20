@@ -229,11 +229,10 @@ def roll_dice_expression(notation):
 
 
 # Tkinter Interface
-class DiceRollerApp(tk.Tk):
-    def __init__(self):
-        super().__init__()
-        self.title("Notation Dice Roller")
-        self.geometry("400x300")
+class DiceRollerApp(tk.Frame):
+    def __init__(self, parent, controller):
+        super().__init__(parent)
+        self.controller = controller
 
         # Label
         self.label = tk.Label(self, text="Enter Dice Notation:")
