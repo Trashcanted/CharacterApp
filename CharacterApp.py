@@ -1,6 +1,7 @@
 import tkinter as tk
 from CharacterSheet import CharacterSheetApp
 from DiceRoller import DiceRollerApp as NotationDiceRollerApp
+from PIL import Image, ImageTk
 
 class MainApp(tk.Tk):
     def __init__(self):
@@ -22,6 +23,9 @@ class MainApp(tk.Tk):
         notation_dice_roller_frame = NotationDiceRollerApp(self.container, self)
         notation_dice_roller_frame.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
+        self.character_image_frame = tk.Label(self.container)
+        self.character_image_frame.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+
         self.frames["CharacterSheetApp"] = character_sheet_frame
         self.frames["NotationDiceRollerApp"] = notation_dice_roller_frame
 
@@ -29,6 +33,29 @@ class MainApp(tk.Tk):
         self.container.grid_rowconfigure(1, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
         self.container.grid_columnconfigure(1, weight=1)
+
+    def update_image(self, image_path):
+        if image_path:
+            max_width, max_height = 300, 300
+            image = Image.open(image_path)
+            width, height = image.size
+
+            # Calculate the new dimensions while maintaining the aspect ratio
+            if width > height:
+                new_width = min(width, max_width)
+                new_height = int((new_width / width) * height)
+            else:
+                new_height = min(height, max_height)
+                new_width = int((new_height / height) * width)
+
+            image = image.resize((new_width, new_height))
+            photo = ImageTk.PhotoImage(image)
+
+            self.character_image_frame.config(image=photo)
+            self.character_image_frame.image = photo
+        else:
+            self.character_image_frame.config(image="")
+            self.character_image_frame.image = ""
 
     def create_menu(self):
         menubar = tk.Menu(self)

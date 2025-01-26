@@ -2,6 +2,7 @@ import json
 import tkinter as tk
 from math import floor
 from tkinter import filedialog, messagebox, ttk
+from PIL import Image, ImageTk
 
 
 class CharacterSheetApp(tk.Frame):
@@ -14,6 +15,8 @@ class CharacterSheetApp(tk.Frame):
 
         self.create_tabs()
         self.create_buttons()
+
+        self.image = None
 
     def create_tabs(self):
         self.character_info_tab = ttk.Frame(self.notebook)
@@ -1618,12 +1621,28 @@ class CharacterSheetApp(tk.Frame):
         )
         export_button.pack(side="left", padx=5, pady=5)
 
+        image_button = tk.Button(
+            self.buttons_frame,
+            text="Add Image",
+            command=self.add_image
+        )
+        image_button.pack(side="left", padx=5, pady=5)
+
+    def add_image(self):
+        file_path = filedialog.askopenfilename(
+            filetypes=[("Image files", "*.png *.jpg *.jpeg")],
+        )
+        if file_path:
+            self.image = file_path
+            self.controller.update_image(self.image)
+
     def export_to_json(self):
         file_path = filedialog.asksaveasfilename(
             defaultextension=".json", filetypes=[("JSON files", "*.json")]
         )
         if file_path:
             data = {
+                "Image": self.image if self.image else "",
                 "Info": {
                     "Character Name": self.name.get(),
                     "Character Level": self.level.get(),
@@ -3044,6 +3063,12 @@ class CharacterSheetApp(tk.Frame):
                 data = json.load(file)
 
             # Populate the fields in the Tkinter interface
+            if "Image" in data.keys():
+                self.image = data["Image"]
+            else:
+                self.image = None
+            self.controller.update_image(self.image)
+            
             self.name.delete(0, tk.END)
             self.name.insert(0, data["Info"]["Character Name"])
 
