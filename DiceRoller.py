@@ -9,11 +9,11 @@ def roll_die(sides):
     return random.randint(1, sides)
 
 
-def xdy(num_dice, sides, use_crit=False, reroll_1s=False, use_elevation=False):
+def xdy(num_dice, sides, use_crit=False, reroll_1s=False, use_elevation=False, explode_threshold=None, explode_inline=False):
     rolls = []
     threshold = 8 if use_elevation else None
 
-    for _ in range(num_dice):
+    def single_die():
         roll = roll_die(sides)
         total = roll
 
@@ -28,15 +28,23 @@ def xdy(num_dice, sides, use_crit=False, reroll_1s=False, use_elevation=False):
             elif roll == 1:
                 total = -sides
 
-        if use_elevation and sides == 20:
-            if 2 <= roll <= threshold:
-                total = threshold
+        if use_elevation and sides == 20 and 2 <= roll <= threshold:
+            total = threshold
 
-        rolls.append(total)
+        return total
+
+    dice_queue = [1] * num_dice
+    while dice_queue:
+        _ = dice_queue.pop()
+        roll = single_die()
+        rolls.append(roll)
+        if explode_threshold is not None and roll >= explode_threshold and explode_inline:
+            dice_queue.append(1)
 
     return rolls
 
 
+# Remaining logic unchanged for notation parsing
 def parse_notation(notation):
     parts = re.split(r'([+\-*/])', notation.replace(" ", ""))
     parsed = []
@@ -58,7 +66,7 @@ def parse_notation(notation):
     return parsed
 
 
-def roll_dice_expression(notation, use_crit=False, reroll_1s=False, use_elevation=False, explode_threshold=None):
+def roll_dice_expression(notation, use_crit=False, reroll_1s=False, use_elevation=False, explode_threshold=None, explode_inline=False):
     match = re.match(r'(\d+)\^(.+)', notation)
     if match:
         times = int(match.group(1))
@@ -87,7 +95,7 @@ def roll_dice_expression(notation, use_crit=False, reroll_1s=False, use_elevatio
                     case '/': result = math.floor(result / number); multipliers.append(f"1/{number}")
             elif len(item) == 3:
                 num_dice, sides = item[1], item[2]
-                roll_set = xdy(num_dice, sides, use_crit, reroll_1s, use_elevation)
+                roll_set = xdy(num_dice, sides, use_crit, reroll_1s, use_elevation, explode_threshold, explode_inline)
                 match op:
                     case '+': result += sum(roll_set)
                     case '-': result -= sum(roll_set)
@@ -104,7 +112,7 @@ class DiceRollerApp(tk.Frame):
     def __init__(self, parent, controller=None):
         super().__init__(parent)
         self.controller = controller
-        self.last_results = []  # store all results for filtering
+        self.last_results = []
 
         self.label = tk.Label(self, text="Enter Dice Notation (e.g. 2d6+3):")
         self.label.pack(pady=5)
@@ -118,12 +126,12 @@ class DiceRollerApp(tk.Frame):
         self.use_elevation = tk.BooleanVar()
         self.use_exploding = tk.BooleanVar()
         self.use_repeat = tk.BooleanVar()
+        self.explode_inline = tk.BooleanVar()
 
-        # Exploding dice controls
         explode_frame = tk.Frame(self)
         explode_frame.pack(anchor="w", pady=2, padx=5, fill="x")
 
-        tk.Checkbutton(explode_frame, text="Exploding Dice (>=)", variable=self.use_exploding, command=self.toggle_explode_entry).pack(side=tk.LEFT)
+        tk.Checkbutton(explode_frame, text="Exploding Dice", variable=self.use_exploding, command=self.toggle_explode_entry).pack(side=tk.LEFT)
         tk.Label(explode_frame, text="Threshold:").pack(side=tk.LEFT)
         self.explode_threshold_entry = tk.Entry(explode_frame, width=5)
         self.explode_threshold_entry.insert(0, "20")
@@ -136,7 +144,9 @@ class DiceRollerApp(tk.Frame):
         self.explode_multiplier_entry.pack(side=tk.LEFT)
         self.explode_multiplier_entry.configure(state="disabled")
 
-        # Repeat rolls controls
+        self.explode_inline_check = tk.Checkbutton(explode_frame, text="Exploding damage (vs fortunes's favor)", variable=self.explode_inline)
+        self.explode_inline_check.pack(side=tk.LEFT)
+
         repeat_frame = tk.Frame(self)
         repeat_frame.pack(anchor="w", pady=2, padx=5, fill="x")
         tk.Checkbutton(repeat_frame, text="Repeat Notation", variable=self.use_repeat, command=self.toggle_repeat_entry).pack(side=tk.LEFT)
@@ -157,7 +167,6 @@ class DiceRollerApp(tk.Frame):
         self.result_text.pack(pady=10)
         self.result_text.configure(state="disabled")
 
-        # Filter controls
         filter_frame = tk.Frame(self)
         filter_frame.pack(anchor="w", pady=2, padx=5, fill="x")
         tk.Label(filter_frame, text="Min Total:").pack(side=tk.LEFT)
@@ -172,6 +181,7 @@ class DiceRollerApp(tk.Frame):
         state = "normal" if self.use_exploding.get() else "disabled"
         self.explode_threshold_entry.configure(state=state)
         self.explode_multiplier_entry.configure(state=state)
+        self.explode_inline_check.configure(state=state)
 
     def toggle_repeat_entry(self):
         if self.use_repeat.get():
@@ -205,6 +215,7 @@ class DiceRollerApp(tk.Frame):
                     self.display_error("Repeat times must be a positive integer.")
                     return
 
+            explode_inline = self.explode_inline.get()
             results = []
             queue = [1] * repeat_times
             explosion_count = 0
@@ -218,11 +229,12 @@ class DiceRollerApp(tk.Frame):
                     use_crit=self.use_crit.get(),
                     reroll_1s=self.reroll_1s.get(),
                     use_elevation=self.use_elevation.get(),
-                    explode_threshold=explode_threshold
+                    explode_threshold=explode_threshold,
+                    explode_inline=explode_inline
                 )
                 results.extend(result_set)
 
-                if explode_threshold is not None and explosion_count < max_explosions:
+                if explode_threshold is not None and not explode_inline and explosion_count < max_explosions:
                     for _, roll_sets, *_ in result_set:
                         for roll_set in roll_sets:
                             for roll in roll_set:
