@@ -44,7 +44,6 @@ def xdy(num_dice, sides, use_crit=False, reroll_1s=False, use_elevation=False, e
     return rolls
 
 
-# Remaining logic unchanged for notation parsing
 def parse_notation(notation):
     parts = re.split(r'([+\-*/])', notation.replace(" ", ""))
     parsed = []
@@ -114,12 +113,16 @@ class DiceRollerApp(tk.Frame):
         self.controller = controller
         self.last_results = []
 
-        self.label = tk.Label(self, text="Enter Dice Notation (e.g. 2d6+3):")
-        self.label.pack(pady=5)
+        self.grid(padx=10, pady=10)
+
+        row = 0
+        tk.Label(self, text="Enter Dice Notation (e.g. 2d6+3):").grid(row=row, column=0, pady=5)
+        row += 1
 
         self.entry = tk.Entry(self)
-        self.entry.pack(pady=5)
+        self.entry.grid(row=row, column=0, pady=5)
         self.entry.bind("<Return>", self.roll_dice)
+        row += 1
 
         self.use_crit = tk.BooleanVar()
         self.reroll_1s = tk.BooleanVar()
@@ -128,47 +131,59 @@ class DiceRollerApp(tk.Frame):
         self.use_repeat = tk.BooleanVar()
         self.explode_inline = tk.BooleanVar()
 
-        explode_frame = tk.Frame(self)
-        explode_frame.pack(anchor="w", pady=2, padx=5, fill="x")
+        tk.Checkbutton(self, text="Critical", variable=self.use_crit).grid(row=row, column=0, pady=2)
+        row += 1
 
-        tk.Checkbutton(explode_frame, text="Exploding Dice", variable=self.use_exploding, command=self.toggle_explode_entry).pack(side=tk.LEFT)
-        tk.Label(explode_frame, text="Threshold:").pack(side=tk.LEFT)
-        self.explode_threshold_entry = tk.Entry(explode_frame, width=5)
+        tk.Checkbutton(self, text="Reliable Boon (force points only)", variable=self.reroll_1s).grid(row=row, column=0, pady=2)
+        row += 1
+
+        tk.Checkbutton(self, text="Exceptional Skill", variable=self.use_elevation).grid(row=row, column=0, pady=2)
+        row += 1
+
+        tk.Checkbutton(self, text="Exploding Dice", variable=self.use_exploding, command=self.toggle_explode_entry).grid(row=row, column=0, pady=2)
+        row += 1
+
+        tk.Label(self, text="Explode Threshold:").grid(row=row, column=0)
+        row += 1
+        self.explode_threshold_entry = tk.Entry(self, width=10)
         self.explode_threshold_entry.insert(0, "20")
-        self.explode_threshold_entry.pack(side=tk.LEFT, padx=5)
+        self.explode_threshold_entry.grid(row=row, column=0, pady=2)
         self.explode_threshold_entry.configure(state="disabled")
+        row += 1
 
-        tk.Label(explode_frame, text="Explode Gives:").pack(side=tk.LEFT)
-        self.explode_multiplier_entry = tk.Entry(explode_frame, width=3)
+        tk.Label(self, text="Explode Gives:").grid(row=row, column=0)
+        row += 1
+        self.explode_multiplier_entry = tk.Entry(self, width=10)
         self.explode_multiplier_entry.insert(0, "1")
-        self.explode_multiplier_entry.pack(side=tk.LEFT)
+        self.explode_multiplier_entry.grid(row=row, column=0, pady=2)
         self.explode_multiplier_entry.configure(state="disabled")
+        row += 1
 
-        self.explode_inline_check = tk.Checkbutton(explode_frame, text="Exploding damage (vs fortunes's favor)", variable=self.explode_inline)
-        self.explode_inline_check.pack(side=tk.LEFT)
+        self.explode_inline_check = tk.Checkbutton(self, text="Exploding damage (vs fortune's favor)", variable=self.explode_inline)
+        self.explode_inline_check.grid(row=row, column=0, pady=2)
+        row += 1
 
-        repeat_frame = tk.Frame(self)
-        repeat_frame.pack(anchor="w", pady=2, padx=5, fill="x")
-        tk.Checkbutton(repeat_frame, text="Repeat Notation", variable=self.use_repeat, command=self.toggle_repeat_entry).pack(side=tk.LEFT)
-        tk.Label(repeat_frame, text="Times:").pack(side=tk.LEFT)
-        self.repeat_times_entry = tk.Entry(repeat_frame, width=5)
+        tk.Checkbutton(self, text="Repeat Notation", variable=self.use_repeat, command=self.toggle_repeat_entry).grid(row=row, column=0, pady=2)
+        row += 1
+
+        tk.Label(self, text="Repeat Times:").grid(row=row, column=0)
+        row += 1
+        self.repeat_times_entry = tk.Entry(self, width=10)
         self.repeat_times_entry.insert(0, "1")
-        self.repeat_times_entry.pack(side=tk.LEFT, padx=5)
+        self.repeat_times_entry.grid(row=row, column=0, pady=2)
         self.repeat_times_entry.configure(state="disabled")
-
-        tk.Checkbutton(self, text="Critical", variable=self.use_crit).pack()
-        tk.Checkbutton(self, text="Reliable Boon (force points only)", variable=self.reroll_1s).pack()
-        tk.Checkbutton(self, text="Exceptional Skill", variable=self.use_elevation).pack()
+        row += 1
 
         self.roll_button = tk.Button(self, text="Roll", command=self.roll_dice)
-        self.roll_button.pack(pady=5)
+        self.roll_button.grid(row=row, column=0, pady=10)
+        row += 1
 
         self.result_text = tk.Text(self, height=12, width=60)
-        self.result_text.pack(pady=10)
-        self.result_text.configure(state="disabled")
+        self.result_text.grid(row=row, column=0, pady=10)
+        row += 1
 
         filter_frame = tk.Frame(self)
-        filter_frame.pack(anchor="w", pady=2, padx=5, fill="x")
+        filter_frame.grid(row=row, column=0, pady=2)
         tk.Label(filter_frame, text="Min Total:").pack(side=tk.LEFT)
         self.min_filter_entry = tk.Entry(filter_frame, width=5)
         self.min_filter_entry.pack(side=tk.LEFT, padx=5)
@@ -184,77 +199,57 @@ class DiceRollerApp(tk.Frame):
         self.explode_inline_check.configure(state=state)
 
     def toggle_repeat_entry(self):
-        if self.use_repeat.get():
-            self.repeat_times_entry.configure(state="normal")
-        else:
-            self.repeat_times_entry.configure(state="disabled")
+        self.repeat_times_entry.configure(state="normal" if self.use_repeat.get() else "disabled")
 
     def roll_dice(self, event=None):
         notation = self.entry.get()
-
         try:
-            explode_threshold = None
-            explode_multiplier = 1
-            if self.use_exploding.get():
-                try:
-                    explode_threshold = int(self.explode_threshold_entry.get())
-                    explode_multiplier = int(self.explode_multiplier_entry.get())
-                    if explode_multiplier < 1:
-                        raise ValueError
-                except ValueError:
-                    self.display_error("Exploding threshold and multiplier must be valid integers.")
-                    return
+            explode_threshold = int(self.explode_threshold_entry.get()) if self.use_exploding.get() else None
+            explode_multiplier = int(self.explode_multiplier_entry.get()) if self.use_exploding.get() else 1
+            repeat_times = int(self.repeat_times_entry.get()) if self.use_repeat.get() else 1
+            if explode_multiplier < 1 or repeat_times < 1:
+                raise ValueError
+        except ValueError:
+            self.display_error("Exploding threshold, multiplier, and repeat times must be valid positive integers.")
+            return
 
-            repeat_times = 1
-            if self.use_repeat.get():
-                try:
-                    repeat_times = int(self.repeat_times_entry.get())
-                    if repeat_times < 1:
-                        raise ValueError
-                except ValueError:
-                    self.display_error("Repeat times must be a positive integer.")
-                    return
+        explode_inline = self.explode_inline.get()
+        results = []
+        queue = [1] * repeat_times
+        explosion_count = 0
+        max_explosions = 100000
+        explosion_limit_reached = False
 
-            explode_inline = self.explode_inline.get()
-            results = []
-            queue = [1] * repeat_times
-            explosion_count = 0
-            max_explosions = 1000
-            explosion_limit_reached = False
+        while queue:
+            queue.pop()
+            result_set = roll_dice_expression(
+                notation,
+                use_crit=self.use_crit.get(),
+                reroll_1s=self.reroll_1s.get(),
+                use_elevation=self.use_elevation.get(),
+                explode_threshold=explode_threshold,
+                explode_inline=explode_inline
+            )
+            results.extend(result_set)
 
-            while queue:
-                queue.pop()
-                result_set = roll_dice_expression(
-                    notation,
-                    use_crit=self.use_crit.get(),
-                    reroll_1s=self.reroll_1s.get(),
-                    use_elevation=self.use_elevation.get(),
-                    explode_threshold=explode_threshold,
-                    explode_inline=explode_inline
-                )
-                results.extend(result_set)
-
-                if explode_threshold is not None and not explode_inline and explosion_count < max_explosions:
-                    for _, roll_sets, *_ in result_set:
-                        for roll_set in roll_sets:
-                            for roll in roll_set:
-                                if roll >= explode_threshold:
-                                    to_add = min(explode_multiplier, max_explosions - explosion_count)
-                                    queue.extend([1] * to_add)
-                                    explosion_count += to_add
-                                    if explosion_count >= max_explosions:
-                                        explosion_limit_reached = True
-                                        break
-                            if explosion_limit_reached:
-                                break
+            if explode_threshold is not None and not explode_inline and explosion_count < max_explosions:
+                for _, roll_sets, *_ in result_set:
+                    for roll_set in roll_sets:
+                        for roll in roll_set:
+                            if roll >= explode_threshold:
+                                to_add = min(explode_multiplier, max_explosions - explosion_count)
+                                queue.extend([1] * to_add)
+                                explosion_count += to_add
+                                if explosion_count >= max_explosions:
+                                    explosion_limit_reached = True
+                                    break
                         if explosion_limit_reached:
                             break
+                    if explosion_limit_reached:
+                        break
 
-            self.last_results = results
-            self.render_results(results, explosion_limit_reached)
-
-        except ValueError as e:
-            self.display_error(str(e))
+        self.last_results = results
+        self.render_results(results, explosion_limit_reached)
 
     def render_results(self, results, explosion_limit_reached=False):
         self.result_text.configure(state="normal")
@@ -271,7 +266,7 @@ class DiceRollerApp(tk.Frame):
             self.result_text.insert(tk.END, "\n")
 
         if explosion_limit_reached:
-            self.result_text.insert(tk.END, f"[!] Explosion limit of 1000 reached. Some rolls were skipped.\n\n")
+            self.result_text.insert(tk.END, "[!] Explosion limit of 1000 reached. Some rolls were skipped.\n\n")
 
         self.result_text.configure(state="disabled")
 
@@ -279,18 +274,8 @@ class DiceRollerApp(tk.Frame):
         try:
             min_val = int(self.min_filter_entry.get()) if self.min_filter_entry.get() else None
             max_val = int(self.max_filter_entry.get()) if self.max_filter_entry.get() else None
-
-            filtered = []
-            for result in self.last_results:
-                total = result[0]
-                if min_val is not None and total < min_val:
-                    continue
-                if max_val is not None and total > max_val:
-                    continue
-                filtered.append(result)
-
+            filtered = [res for res in self.last_results if (min_val is None or res[0] >= min_val) and (max_val is None or res[0] <= max_val)]
             self.render_results(filtered)
-
         except ValueError:
             self.display_error("Filter values must be valid integers.")
 

@@ -7,7 +7,8 @@ class MainApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Stellar Fantasies")
-        self.geometry("1200x600")  # Adjusted size to fit all apps
+        self.attributes("-fullscreen", True)
+        self.bind("<Escape>", lambda e: self.attributes("-fullscreen", False))
 
         self.container = tk.Frame(self)
         self.container.pack(side="top", fill="both", expand=True)
